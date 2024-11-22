@@ -4,7 +4,10 @@ import { StatusBar, StyleSheet } from 'react-native';
 import Welcome from './home/Welcome';
 import Menu from "./auth/Menu";
 import { useEffect } from "react";
-
+import QueEs from "./auth/QueEs";
+import Dieta from "./auth/Dieta";
+import Tratamientos from "./auth/Tratamientos";
+import Diagnostico from "./auth/Dianostico";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -31,6 +34,26 @@ export default function App() {
         <Stack.Screen
           name='Menu'
           component={Menu}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='QueEs'
+          component={QueEs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Tratamientos'
+          component={Tratamientos}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Dieta'
+          component={Dieta}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Diagnostico'
+          component={Diagnostico}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

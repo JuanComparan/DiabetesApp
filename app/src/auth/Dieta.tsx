@@ -3,67 +3,22 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import data from './../../../json/data.json';
 import { useEffect, useState } from "react";
+import TopBar from "../components/topBar";
 
-interface DescriptionItem {
-    id: number;
-    text: string;
-}
 
-interface Props {
-    navigation: StackNavigationProp<any>;
-}
 
-export default function Welcome({ navigation }: Props) {
-    const [description, setDescription] = useState<DescriptionItem[]>([]);
 
-    const [fontsLoaded] = useFonts({
-        "Kadwa-Bold": require("./../../../assets/fonts/Kadwa-Bold.ttf"),
-        "Kadwa-Regular": require("./../../../assets/fonts/Kadwa-Regular.ttf"),
-    });
-
-    // Carga inicial de la descripción
-    useEffect(() => {
-        setDescription(data.Description || []); // Evita errores si el JSON no tiene la estructura esperada.
-    }, []);
-
-    const itemToShow = description.find(item => item.id === 1);
-
-    // Mostrar pantalla de carga si las fuentes no están listas
-    if (!fontsLoaded) {
-        return (
-            <View style={styles.mainContainer}>
-                <Text>Cargando fuentes...</Text>
-            </View>
-        );
-    }
+export default function Dieta() {
+   
 
     return (
         <View style={styles.mainContainer}>
-            <SafeAreaView style={styles.topScreen}>
-                <View style={styles.titleTextContainer}>
-                    <Text style={styles.title}>BIENVENIDO</Text>
-                </View>
-            </SafeAreaView>
+            <TopBar tittle="¿Que es?"/>
             <View style={styles.middleContainer}>
-                {itemToShow ? (
-                    <View key={itemToShow.id} style={styles.descriptionContainer}>
-                        <View style={styles.descriptionTextContainer}>
-                            <Text style={styles.descriptionText}>{itemToShow.text}</Text>
-                        </View>
-                    </View>
-                ) : (
-                    <Text>No se encontró la descripción</Text>
-                )}
+                
             </View>
             <View style={styles.bottomContainer}>
-                <TouchableOpacity
-                    style={styles.buttonContainer}
-                    onPress={() => navigation.navigate("Menu")}
-                >
-                    <View style={styles.textContainer}>
-                        <Text style={styles.text}>INGRESAR</Text>
-                    </View>
-                </TouchableOpacity>
+               
             </View>
         </View>
     );
