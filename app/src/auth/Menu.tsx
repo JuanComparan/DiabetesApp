@@ -7,52 +7,55 @@ import TopBar from "../components/TopBar";
 interface Props {
     navigation: StackNavigationProp<any>;
 }
-export default function Menu ({navigation}:Props) {
+export default function Menu({ navigation }: Props) {
 
 
     return (
         <View style={styles.mainContainer}>
-            <TopBar tittle="menu" />
+            <TopBar tittle="TODO SOBRE LA DIABETES" />
             <View style={styles.middleContainer}>
                 <View style={styles.descriptionContainer}>
-                    <View style={styles.descriptionTextContainer}>
-                        <View style={styles.middle}>
-                        <TouchableOpacity style={styles.BoxContainer}  onPress={() => navigation.navigate('QueEs')}> 
-                                <Text  style={styles.descriptionTextContainer}>¿Que es?</Text>
-                                <Image 
+                    <View style={styles.middle}>
+                        <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('QueEs')}>
+                            <View style={{ flex: 1 }}>
+                                <Text style={styles.descriptionText}>¿Que es?</Text>
+                                <Image
                                     source={require('./../../../assets/images/queEs.png')} // Imagen desde URL
                                     style={styles.image}
                                 />
+                            </View>
                         </TouchableOpacity>
-                            <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Diagnostico')}>
-                                <Text  style={styles.descriptionTextContainer}>Diagnostico</Text>
-                                <Image 
+                        <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Diagnostico')}>
+                            <View style={{ flex: 1 }}>
+                                <Text style={styles.descriptionText}>Diagnostico</Text>
+                                <Image
                                     source={require('./../../../assets/images/Diagnostico.png')} // Imagen desde URL
                                     style={styles.image}
                                 />
+                            </View>
                         </ TouchableOpacity>
-                        </View>
-                        <View style={styles.middle}>
-                            <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Dieta')}>
-                                <Text  style={styles.descriptionTextContainer}>Dietas</Text>
-                                <Image 
+                    </View>
+                    <View style={styles.middle}>
+                        <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Dieta')}>
+                            <View style={{flex:1}}>
+                                <Text style={styles.descriptionText}>Dietas</Text>
+                                <Image
                                     source={require('./../../../assets/images/Dieta.png')} // Imagen desde URL
                                     style={styles.image}
                                 />
-                            </ TouchableOpacity>
-                            <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Tratamientos')}>
-                                <Text  style={styles.descriptionTextContainer}>Tratamiento</Text>
-                                <Image 
+                            </View>
+                        </ TouchableOpacity>
+                        <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Tratamientos')}>
+                            <View style={{flex:1}}>
+                                <Text style={styles.descriptionText}>Tratamiento</Text>
+                                <Image
                                     source={require('./../../../assets/images/Tratamiento.png')} // Imagen desde URL
                                     style={styles.image}
                                 />
-                            </ TouchableOpacity>
-                        </View> 
+                            </View>
+                        </ TouchableOpacity>
                     </View>
                 </View>
-            </View>
-            <View style={styles.bottomContainer}>
-                
             </View>
         </View>
     )
@@ -79,41 +82,24 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     middleContainer: {
-        flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    bottomContainer: {
-        flex: 1,
+        flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
     },
     descriptionContainer: {
-        height: '90%',
-        width: '90%',
-        padding: 10,
-        justifyContent: 'center',
-        alignItems:"center",
+        height: '60%',
+        width: '85%',
+        padding: 5,
         borderRadius: 20,
         backgroundColor: '#F4F4F4',
         elevation: 10,
     },
-    descriptionTextContainer: {
-        margin: 5,
-        fontSize: 20,
+    descriptionText: {
+        fontSize: 12,
         color: '#4A4A4A',
-        fontFamily: 'Kadwa-Regular'
+        fontFamily: 'Kadwa-Regular',
+        textAlign: 'center',
     },
-    buttonContainer: {
-        height: '40%',
-        width: '60%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        backgroundColor: '#F4F4F4',
-        elevation: 10,
-    },
-
     // Textos
     title: {
         fontSize: 45,
@@ -125,34 +111,23 @@ const styles = StyleSheet.create({
         color: '#4A4A4A',
         fontFamily: 'Kadwa-Regular'
     },
-    descriptionText: {
-        fontSize: 18,
-        color: "#4A4A4A",
-        fontFamily: 'Kadwa-Regular'
-    },
-    BoxContainer:{
-        height: '95%',
-        width: '50%',
+    BoxContainer: {
+        flex: 1,
+        height: 135,
         borderRadius: 25,
-        padding:5,
-        borderWidth:1,
-        //backgroundColor: 'blue',
-        marginTop:5,
-        margin:2,
-        alignItems:"center",
-        marginBottom:20,
-        
+        elevation: 8,
+        backgroundColor: '#FFFFFF',
+        alignItems: "center",
+        justifyContent: 'center',
+        marginHorizontal: 10,
+        marginVertical: 10,
     },
-    middle:{
-        height:"50%",
-        //backgroundColor:"red",
-        flexDirection:"row",
-        alignItems:"center",
+    middle: {
+        flexDirection: "row",
     },
     image: {
-        width: "70%", // Ancho de la imagen
-        height: "70%", // Altura de la imagen
-        borderRadius: 75, // Hacer la imagen circular
-        resizeMode:"contain",
-      },
+        width: 100, // Ancho de la imagen
+        height: 100, // Altura de la imagen
+        resizeMode: "contain",
+    },
 })

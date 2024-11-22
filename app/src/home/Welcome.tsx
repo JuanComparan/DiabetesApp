@@ -23,7 +23,7 @@ export default function Welcome({ navigation }: Props) {
 
     // Carga inicial de la descripción
     useEffect(() => {
-        setDescription(data.Description || []); // Evita errores si el JSON no tiene la estructura esperada.
+        setDescription(data.Bienvenida || []); // Evita errores si el JSON no tiene la estructura esperada.
     }, []);
 
     const itemToShow = description.find(item => item.id === 1);

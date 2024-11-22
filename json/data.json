@@ -1,8 +1,28 @@
 {
-    "Description" : [
+    "Bienvenida": [
         {
-            "id" : 1,
-            "text" : "DiabetesApp es una aplicación informativa acerca de la diabetes."
+            "id": 1,
+            "text": "DiabetesApp es una aplicación informativa acerca de la diabetes."
+        }
+    ],
+    "QueEs": [
+        {
+            "id": 1,
+            "text": "Es una enfermedad crónica que se presenta cuando el pancreas no produce la suficiente insulina o el organismo no la utiliza eficazmente, la insulina es la hormona que controla la glucosa en la sangre es decir, la glucemia. Un efecto común de la diabetes no controlada es la hiperglucemia (es decir, la glucemia elevada) que, con el tiempo daña gravemente muchos órganos y sistemas del organismo, sobre todo los nervios y los vasos sanguíneos.",
+            "title": "¿QUE ES?"
+        },
+        {
+            "id" : 2,
+            "title" : "DIABETES TIPO 1",
+            "text" : "El sistema inmunitario del cuerpo es responsable de contrarrestar a los invasores extraños, como los virus y las bacterias dañinas.",
+            "text2" : "En las personas con diabetes tipo 1, el sistema inmunitario confunde las células sanas del propio cuerpo con invasores extraños. El sistema inmunitario ataca y destruye las células beta que producen insulina en el páncreas. Después de que estas células beta son destruidas, el cuerpo no puede producir insulina.",
+            "image" : "queEs1.png"
+        },
+        {
+            "id" : 3,
+            "title" : "DIABETES TIPO 2",
+            "text" : "Las personas con diabetes tipo 2 tienen resistencia a la insulina. El cuerpo todavía produce insulina, pero no puede usarla efectivamente.",
+            "text2" : "Los investigadores no están seguros por qué algunas personas se vuelven resistentes a la insulina y otras no, sin embargo, pueden contribuir varios factores del estilo de vida, incluyendo ser inactivo y tener exceso de peso."
         }
     ]
 }

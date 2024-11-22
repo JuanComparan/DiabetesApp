@@ -3,7 +3,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import data from './../../../json/data.json';
 import { useEffect, useState } from "react";
-import TopBar from "../components/topBar";
+import TopBar from "../components/TopBar";
 
 
 

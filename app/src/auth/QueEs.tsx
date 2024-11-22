@@ -1,24 +1,56 @@
-import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useFonts } from "expo-font";
+import { Image, View, StyleSheet, ScrollView, Text } from "react-native";
 import data from './../../../json/data.json';
+import images from "../../../assets/images/images";
+import TopBar from "../components/TopBar";
 import { useEffect, useState } from "react";
-import TopBar from "../components/topBar";
 
-
-
+interface DescriptionItem {
+    id: number;
+    text: string;
+    text2?: string;
+    title?: string;
+    image?: string;
+}
 
 export default function QueEs() {
-   
+    // Declaramos las variables
+    const [description, setDescription] = useState<DescriptionItem[]>([]);
+
+    // Carga inicial de la descripción
+    useEffect(() => {
+        setDescription(data.QueEs || []); // Evita errores si el JSON no tiene la estructura esperada.
+    }, []);
 
     return (
         <View style={styles.mainContainer}>
-            <TopBar tittle="¿Que es?"/>
+            <TopBar tittle="¿Qué es la diabetes?" />
             <View style={styles.middleContainer}>
-                
-            </View>
-            <View style={styles.bottomContainer}>
-               
+                <ScrollView
+                >
+                    <View style={styles.textContainer}>
+                        <Image
+                            source={require("../../../assets/images/diabetesQueEs1.png")}
+                            style={styles.image}
+                        />
+                    </View>
+                    {description.map((description) => (
+                        <View key={description.id} style={styles.textContainer}>
+                            {description.title && (
+                                <Text style={styles.textTitle}>{description.title}</Text>
+                            )}
+                            <Text style={styles.text}>{description.text}</Text>
+                            {description.text2 && (
+                                <Text style={styles.text2}>{description.text2}</Text>
+                            )}
+                            {description.image && (
+                                <Image
+                                    style={styles.image}
+                                    source={images[description.image]}
+                                />
+                            )}
+                        </View>
+                    ))}
+                </ScrollView>
             </View>
         </View>
     );
@@ -30,53 +62,15 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex: 1
     },
-    topScreen: {
-        flex: 1.5,
+    middleContainer: {
+        flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#29C73D',
-        borderBottomWidth: 2,
-        borderColor: '#2CDA43'
     },
     textContainer: {
-        justifyContent: 'center',
-    },
-    titleTextContainer: {
-        justifyContent: 'center',
-        marginTop: 30,
-    },
-    middleContainer: {
-        flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    bottomContainer: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        margin: 10,
     },
-    descriptionContainer: {
-        height: '70%',
-        width: '90%',
-        padding: 10,
-        justifyContent: 'center',
-        borderRadius: 20,
-        backgroundColor: '#F4F4F4',
-        elevation: 10,
-    },
-    descriptionTextContainer: {
-        margin: 5,
-    },
-    buttonContainer: {
-        height: '40%',
-        width: '60%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        backgroundColor: '#F4F4F4',
-        elevation: 10,
-    },
-
     // Textos
     title: {
         fontSize: 45,
@@ -84,13 +78,30 @@ const styles = StyleSheet.create({
         color: '#FFFFFF'
     },
     text: {
-        fontSize: 30,
+        fontSize: 16,
         color: '#4A4A4A',
-        fontFamily: 'Kadwa-Regular'
+        fontFamily: 'Kadwa-Regular',
+        textAlign: 'justify',
     },
-    descriptionText: {
-        fontSize: 18,
-        color: "#4A4A4A",
-        fontFamily: 'Kadwa-Regular'
+    text2: {
+        fontSize: 16,
+        color: '#4A4A4A',
+        fontFamily: 'Kadwa-Regular',
+        textAlign: 'justify',
+        marginTop: 15,
+    },
+    // Imagen
+    image: {
+        width: "100%",
+        height: 188,
+        marginVertical: 10,
+        resizeMode: 'cover',
+    },
+    textTitle: {
+        textAlign: 'center',
+        fontSize: 24,
+        marginVertical: 20,
+        fontWeight: 'bold',
+        color: '#4A4A4A',
     },
 })
