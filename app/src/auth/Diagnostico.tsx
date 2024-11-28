@@ -10,44 +10,67 @@ interface DescriptionItem {
     text2?: string;
     title?: string;
     image?: string;
+    title2?:string;
+    text3?: string;
+    title3?:string;
+    text4?: string;
+    title4?:string;
 }
 
-export default function QueEs() {
+export default function Diagnostico() {
     // Declaramos las variables
     const [description, setDescription] = useState<DescriptionItem[]>([]);
 
     // Carga inicial de la descripción
     useEffect(() => {
-        setDescription(data.QueEs || []); // Evita errores si el JSON no tiene la estructura esperada.
+        setDescription(data.Diagnostico || []); // Evita errores si el JSON no tiene la estructura esperada.
     }, []);
 
     return (
         <View style={styles.mainContainer}>
-            <TopBar tittle="¿Qué es la diabetes?" />
+            <TopBar tittle="DIAGNOSTICO" />
             <View style={styles.middleContainer}>
-                <ScrollView
-                >
-                    <View style={styles.textContainer}>
-                        <Image
-                            source={require("../../../assets/images/diabetesQueEs1.png")}
-                            style={styles.image}
-                        />
-                    </View>
+                <ScrollView>
                     {description.map((description) => (
                         <View key={description.id} style={styles.textContainer}>
+                            <Image
+                                source={require("../../../assets/images/DiabetesDiagnostico.jpg")}
+                                style={styles.image}
+                            />
                             {description.title && (
                                 <Text style={styles.textTitle}>{description.title}</Text>
+                                
                             )}
-                            <Text style={styles.text}>{description.text}</Text>
+                            {description.text && (
+                                   <Text style={styles.text}>{description.text}</Text>
+                                
+                            )}
+                            {description.title2 && (
+                                   <Text style={styles.textTitle}>{description.title2}</Text>
+                                
+                            )}
                             {description.text2 && (
-                                <Text style={styles.text2}>{description.text2}</Text>
+                                   <Text style={styles.text}>{description.text2}</Text>
                             )}
-                            {description.image && (
-                                <Image
-                                    style={styles.image}
-                                    source={images[description.image]}
-                                />
+                            {description.title3 && (
+                                   <Text style={styles.textTitle}>{description.title3}</Text>
+                                
                             )}
+                            {description.text3 && (
+                                   <Text style={styles.text}>{description.text3}</Text>
+                            )}
+                            {description.title4 && (
+                                <Text style={styles.textTitle}>{description.title4}</Text>
+                            )}
+                            {description.text4 && (
+                                   <Text style={styles.text}>{description.text4}</Text>
+                            )}
+                           
+                            
+                            
+                            
+                           
+
                         </View>
                     ))}
                 </ScrollView>
@@ -68,7 +91,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     textContainer: {
-        flex: 1,
+        flex:1,
         margin: 10,
     },
     // Textos
@@ -100,8 +123,8 @@ const styles = StyleSheet.create({
     textTitle: {
         textAlign: 'center',
         fontSize: 30,
-        marginVertical: 20,
         fontWeight: 'bold',
         color: '#4A4A4A',
+        marginBottom:10,
     },
 })

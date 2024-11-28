@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import QueEs from "./auth/QueEs";
 import Dieta from "./auth/Dieta";
 import Tratamientos from "./auth/Tratamientos";
-import Diagnostico from "./auth/Dianostico";
+import Diagnostico from "./auth/Diagnostico";
 const Stack = createNativeStackNavigator();
 
 export default function App() {

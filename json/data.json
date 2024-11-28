@@ -24,5 +24,30 @@
             "text" : "Las personas con diabetes tipo 2 tienen resistencia a la insulina. El cuerpo todavía produce insulina, pero no puede usarla efectivamente.",
             "text2" : "Los investigadores no están seguros por qué algunas personas se vuelven resistentes a la insulina y otras no, sin embargo, pueden contribuir varios factores del estilo de vida, incluyendo ser inactivo y tener exceso de peso."
         }
+    ],
+    "Diagnostico": [
+        {
+            "id": 1,
+            "text": "Hay varias formas de diagnosticar la diabetes. Por lo general, cada método debe repetirse en un segundo día para diagnosticar la diabetes. La primera prueba que se usa para diagnosticar tanto la diabetes tipo 1 como la tipo 2 es conocida como la prueba A1C o de hemoglobina glucosilada. Esta prueba de sangre determina tu nivel promedio de azúcar en sangre en los últimos 2 a 3 meses. Tu médico puede extraer sangre o pincharte el dedo levemente. Mientras más altos hayan sido tus niveles de azúcar en sangre durante los últimos meses, más alto será tu nivel de A1C. Los resultados de la prueba se expresan como un porcentaje. Un nivel de A1C de 6.5 por ciento o más indica diabetes. La prueba A1C no es precisa para las personas con anemia falciforme o traza de anemia falciforme. Si tienes esta afección o traza, entonces tu médico tendrá que usar una prueba distinta.",
+            "title": "DIAGNOSTICO",
+            "image":"DiabetesDiagnostico.jpg"
+            
+        },
+        {
+            "id": 2,
+            "text2": "Esta prueba mide tus niveles de glucosa (azúcar) en sangre en ayunas. En ayunas significa no comer ni beber nada (excepto agua) durante al menos 8 horas antes de la prueba. Esta prueba generalmente se realiza a primera hora de la mañana, antes del desayuno. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre en ayunas es superior o igual a 126 mg/dl",
+            "title2":"Glucosa plasmática en ayunas (FPG)"
+        },
+        {
+            "id": 3,
+            "text3": "La prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés) es una prueba de dos horas que analiza tus niveles de glucosa (azúcar) en sangre antes y dos horas después de tomar una bebida dulce especial. Esta prueba le indica al médico la manera en que tu cuerpo procesa el azúcar. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl a las 2 horas",
+            "title3":"Prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés)"
+        },
+        {
+            "id": 4,
+            "text4": "Esta prueba es un análisis de sangre que se hace en cualquier momento del día en que tengas síntomas graves de diabetes. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl.",
+            "title4":"Prueba aleatoria (también llamada casual) de glucosa plasmática"
+        }
+        
     ]
 }

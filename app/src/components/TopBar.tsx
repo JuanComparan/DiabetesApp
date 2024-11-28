@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     topScreen: {
-        flex: 1.5,
+        flex: 1.3,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#29C73D',
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     title: {
-        fontSize: 24,
+        fontSize: 30,
         fontFamily: 'Kadwa-Bold',
         color: '#FFFFFF'
     },
