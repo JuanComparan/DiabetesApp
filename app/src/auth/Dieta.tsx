@@ -1,24 +1,58 @@
-import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView, Image } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import data from './../../../json/data.json';
 import { useEffect, useState } from "react";
 import TopBar from "../components/TopBar";
 
+interface DescriptionItem {
+    id: number;
+    title?: string;
+    text: string;
+    title2?: string;
+    text2?: string;
+    title3?: string;
+    text3?: string;
+    image?: string;
+}
 
 
 
 export default function Dieta() {
-   
+    const [description, setDescription] = useState<DescriptionItem[]>([]);
+
+    // Carga inicial de la descripción
+    useEffect(() => {
+        setDescription(data.Dietas|| []); // Evita errores si el JSON no tiene la estructura esperada.
+    }, []);
 
     return (
         <View style={styles.mainContainer}>
-            <TopBar tittle="¿Que es?"/>
+            <TopBar tittle="Dietas"/>
             <View style={styles.middleContainer}>
-                
-            </View>
-            <View style={styles.bottomContainer}>
-               
+            <ScrollView>
+                    {description.map((description) => (
+                        <View key={description.id} style={styles.textContainer}>
+                            {description.image && (
+                                <Image
+                                source={require("../../../assets/images/DIETAS.jpg")}
+                                  style={styles.image}
+                                />
+                            )}
+                            {description.title && <Text style={styles.textTitle}>{description.title}</Text>}
+                            {description.text && <Text style={styles.text}>{description.text}</Text>}
+
+                            {description.title2 && <Text style={styles.textTitle}>{description.title2}</Text>}
+                            {description.text2 && <Text style={styles.text}>{description.text2}</Text>}
+                            
+                            {description.title3 && <Text style={styles.textTitle}>{description.title3}</Text>}
+                            {description.text3 && <Text style={styles.text}>{description.text3}</Text>}
+
+                        
+
+                        </View>
+                    ))}
+                </ScrollView>
             </View>
         </View>
     );
@@ -39,14 +73,15 @@ const styles = StyleSheet.create({
         borderColor: '#2CDA43'
     },
     textContainer: {
-        justifyContent: 'center',
+        flex: 1,
+        margin: 15,
     },
     titleTextContainer: {
         justifyContent: 'center',
         marginTop: 30,
     },
     middleContainer: {
-        flex: 2,
+        flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -84,13 +119,27 @@ const styles = StyleSheet.create({
         color: '#FFFFFF'
     },
     text: {
-        fontSize: 30,
+        fontSize: 16,
         color: '#4A4A4A',
-        fontFamily: 'Kadwa-Regular'
+        fontFamily: 'Kadwa-Regular',
+        textAlign: 'justify',  
     },
     descriptionText: {
         fontSize: 18,
         color: "#4A4A4A",
         fontFamily: 'Kadwa-Regular'
+    },
+    image: {
+        width: "100%",
+        height: 188,
+        marginVertical: 10,
+        resizeMode: 'cover',
+    },
+    textTitle: {
+        textAlign: 'center',
+        fontSize: 30,
+        marginVertical: 20,
+        fontWeight: 'bold',
+        color: '#4A4A4A',
     },
 })

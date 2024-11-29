@@ -49,5 +49,45 @@
             "title4":"Prueba aleatoria (también llamada casual) de glucosa plasmática"
         }
         
+    ],
+    "Dietas": [
+        {
+            "id": 1,
+            "title":"Dieta",
+            "text":"El control nutricional es una parte importante de la vida para las personas con diabetes.",
+            "image":"DIETAS.jpg"
+            
+        },
+        {
+            "id": 2,
+            "title2": "TIPOS DE DIETA PARA DIABETES TIPO 1",
+            "text2": "Si tienes diabetes tipo 1, trabaja con tu médico para identificar cuánta insulina puedes necesitar inyectarte después de consumir cierto tipo de alimentos.Por ejemplo, los carbohidratos pueden causar que los niveles de azúcar en sangre aumenten rápidamente en las personas con diabetes tipo 1. Necesitarás contrarrestarlo recibiendo insulina, pero necesitarás saber cuánta insulina recibir."
+            
+        },
+        {
+            "id": 3,
+            "title3":"TIPOS DE DIETA PARA DIABETES TIPO 2",
+            "text3": "Las personas con diabetes tipo 2 necesitan enfocarse en una alimentación sana. La pérdida de peso con frecuencia es parte de los planes de tratamiento de la diabetes tipo 2, así que tu médico puede recomendarte un plan de alimentación bajo en calorías. Esto podría significar reducir tu consumo de grasas animales y comida chatarra."
+        }  
+    ],
+    "Tratamientos": [
+        {
+            "id": 1,
+            "title":"Tratamiento",
+            "image":"TRATAMIENTOS.jpg"   
+        },
+        {
+            "id": 2,
+            "title2":"TIPO 1",
+            "title3":"TIPO 2",
+            "text2": "No hay cura para la diabetes tipo 1. Las personas con diabetes tipo 1 no producen insulina, así que se la deben inyectar regularmente en el cuerpo. Algunas personas se inyectan en el tejido blando como el estómago, el brazo, los glúteos, varias veces al día. Otras personas usan bombas de insulina. Las bombas de insulina proveen una cantidad regular de insulina al cuerpo a través de un pequeño tubo. La prueba de azúcar en sangre es una parte esencial para controlar la diabetes tipo 1, debido a que los niveles pueden subir y bajar rápidamente."
+
+        },
+        {
+            "id": 3,
+            
+            "text3": "La diabetes tipo 2 puede controlarse y hasta revertirse simplemente con dieta y ejercicio, pero muchas personas necesitan apoyo adicional. Si los cambios en el estilo de vida no son suficientes, tu médico puede recetar medicamentos para ayudar a tu cuerpo a usar la insulina de manera más efectiva. Controlar tu azúcar en sangre también es una parte esencial del control de la diabetes tipo 2. Es la única manera de saber si alcanzas tus niveles objetivo."
+        }
     ]
+
 }

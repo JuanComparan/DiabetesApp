@@ -33,43 +33,24 @@ export default function Diagnostico() {
                 <ScrollView>
                     {description.map((description) => (
                         <View key={description.id} style={styles.textContainer}>
-                            <Image
+                            {description.image && (
+                                <Image
                                 source={require("../../../assets/images/DiabetesDiagnostico.jpg")}
-                                style={styles.image}
-                            />
-                            {description.title && (
-                                <Text style={styles.textTitle}>{description.title}</Text>
-                                
+                                  style={styles.image}
+                                />
                             )}
-                            {description.text && (
-                                   <Text style={styles.text}>{description.text}</Text>
-                                
-                            )}
-                            {description.title2 && (
-                                   <Text style={styles.textTitle}>{description.title2}</Text>
-                                
-                            )}
-                            {description.text2 && (
-                                   <Text style={styles.text}>{description.text2}</Text>
-                            )}
-                            {description.title3 && (
-                                   <Text style={styles.textTitle}>{description.title3}</Text>
-                                
-                            )}
-                            {description.text3 && (
-                                   <Text style={styles.text}>{description.text3}</Text>
-                            )}
-                            {description.title4 && (
-                                <Text style={styles.textTitle}>{description.title4}</Text>
-                            )}
-                            {description.text4 && (
-                                   <Text style={styles.text}>{description.text4}</Text>
-                            )}
-                           
-                            
-                            
-                            
-                           
+                            {description.title && <Text style={styles.textTitle}>{description.title}</Text>}
+                            {description.text && <Text style={styles.text}>{description.text}</Text>}
+
+                            {description.title2 && <Text style={styles.textTitle}>{description.title2}</Text>}
+                            {description.text2 && <Text style={styles.text}>{description.text2}</Text>}
+
+                            {description.title3 && <Text style={styles.textTitle}>{description.title3}</Text>}
+                            {description.text3 && <Text style={styles.text}>{description.text3}</Text>}
+
+                            {description.title4 && <Text style={styles.textTitle}>{description.title4}</Text>}
+                            {description.text4 && <Text style={styles.text}>{description.text4}</Text>}
+                        
 
                         </View>
                     ))}
@@ -104,7 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#4A4A4A',
         fontFamily: 'Kadwa-Regular',
-        textAlign: 'justify',
+        textAlign: 'justify',  
     },
     text2: {
         fontSize: 16,
