@@ -49,9 +49,9 @@ export default function Dieta() {
                             {description.text3 && <Text style={styles.text}>{description.text3}</Text>}
 
                         
-
                         </View>
                     ))}
+                    
                 </ScrollView>
             </View>
         </View>

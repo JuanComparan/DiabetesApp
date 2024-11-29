@@ -80,14 +80,11 @@
             "id": 2,
             "title2":"TIPO 1",
             "title3":"TIPO 2",
-            "text2": "No hay cura para la diabetes tipo 1. Las personas con diabetes tipo 1 no producen insulina, así que se la deben inyectar regularmente en el cuerpo. Algunas personas se inyectan en el tejido blando como el estómago, el brazo, los glúteos, varias veces al día. Otras personas usan bombas de insulina. Las bombas de insulina proveen una cantidad regular de insulina al cuerpo a través de un pequeño tubo. La prueba de azúcar en sangre es una parte esencial para controlar la diabetes tipo 1, debido a que los niveles pueden subir y bajar rápidamente."
+            "text3": "La diabetes tipo 2 puede controlarse y hasta revertirse simplemente con dieta y ejercicio, pero muchas personas necesitan apoyo adicional. Si los cambios en el estilo de vida no son suficientes, tu médico puede recetar medicamentos para ayudar a tu cuerpo a usar la insulina de manera más efectiva. \nControlar tu azúcar en sangre también es una parte esencial del control de la diabetes tipo 2. Es la única manera de saber si alcanzas tus niveles objetivo.",
+            "text2": "No hay cura para la diabetes tipo 1. Las personas con diabetes tipo 1 no producen insulina, así que se la deben inyectar regularmente en el cuerpo. Algunas personas se inyectan en el tejido blando como el estómago, el brazo, los glúteos, varias veces al día. \n \nOtras personas usan bombas de insulina. Las bombas de insulina proveen una cantidad regular de insulina al cuerpo a través de un pequeño tubo. La prueba de azúcar en sangre es una parte esencial para controlar la diabetes tipo 1, debido a que los niveles pueden subir y bajar rápidamente."
 
-        },
-        {
-            "id": 3,
-            
-            "text3": "La diabetes tipo 2 puede controlarse y hasta revertirse simplemente con dieta y ejercicio, pero muchas personas necesitan apoyo adicional. Si los cambios en el estilo de vida no son suficientes, tu médico puede recetar medicamentos para ayudar a tu cuerpo a usar la insulina de manera más efectiva. Controlar tu azúcar en sangre también es una parte esencial del control de la diabetes tipo 2. Es la única manera de saber si alcanzas tus niveles objetivo."
         }
+
     ]
 
 }

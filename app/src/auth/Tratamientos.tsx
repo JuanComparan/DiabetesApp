@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet, ScrollView, Pressable,Image } from "react-native";
 import { useEffect, useState } from "react";
+
 import TopBar from "../components/TopBar";
 import data from "./../../../json/data.json";
 
@@ -16,6 +17,7 @@ interface DescriptionItem {
 
 export default function Tratamientos() {
   const [description, setDescription] = useState<DescriptionItem[]>([]);
+  const [text,setText]=useState <string | null>(null);
 
   useEffect(() => {
     setDescription(data.Tratamientos || []);
@@ -24,7 +26,7 @@ export default function Tratamientos() {
   return (
     <View style={styles.mainContainer}>
       <TopBar tittle="Tratamientos" />
-      <ScrollView >
+      
       <View style={styles.middleContainer}>
         
         <View style={styles.textContainer}>
@@ -39,10 +41,10 @@ export default function Tratamientos() {
               <View key={item.id} style={styles.types}>
                 
                 <View style={styles.typesContainer}>
-                  <Pressable style={styles.typesButton}>
+                  <Pressable style={styles.typesButton} onPress={()=> setText(item.text2)}>
                     <Text style={styles.textButton}>{item.title2}</Text>
                   </Pressable>
-                  <Pressable style={styles.typesButton}>
+                  <Pressable style={styles.typesButton} onPress={()=>setText(item.text3)}>
                     <Text style={styles.textButton}>{item.title3}</Text>
                   </Pressable>
                 </View>
@@ -50,7 +52,7 @@ export default function Tratamientos() {
                 {/* Contenedor de texto */}
                 <View style={styles.informationConatiner}>
                   <ScrollView>
-                    <Text style={styles.descriptionText}>{item.text2}</Text>
+                    <Text style={styles.descriptionText}>{text || "Selecciona una opción para ver más información"}</Text>
                   </ScrollView>
                 </View>
               </View>
@@ -60,7 +62,7 @@ export default function Tratamientos() {
         })}
     
       </View>
-      </ScrollView>
+     
     </View>
   );
 }
@@ -71,10 +73,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   middleContainer: {
-    flex: 4,
+    flex: 5,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:"blue"
   },
   bottomContainer: {
     flex: 1,
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
   },
   types: {
     width: "90%",
-    height: "80%",
+    height: "70%",
     borderRadius: 20,
     backgroundColor: "#F4F4F4",
     elevation: 10,
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   typesButton: {
     backgroundColor: "white",
     width: "40%",
-    height: "60%",
+    height: "50%",
     elevation: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -116,11 +117,12 @@ const styles = StyleSheet.create({
   informationConatiner: {
     backgroundColor: "white",
     width: "80%",
-    height: "60%",
+    height: "65%",
     elevation: 10,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
+    borderRadius:10
   },
   descriptionText: {
     fontSize: 18,
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   image: {
-    height:"100%",
+    height:"90%",
     marginVertical: 10,
     resizeMode: 'cover',
 },
