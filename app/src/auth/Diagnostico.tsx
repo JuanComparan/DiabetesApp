@@ -1,8 +1,9 @@
-import { Image, View, StyleSheet, ScrollView, Text } from "react-native";
+import { Image, View, ScrollView, Text } from "react-native";
 import data from './../../../json/data.json';
 import images from "../../../assets/images/images";
 import TopBar from "../components/TopBar";
 import { useEffect, useState } from "react";
+import { globalStyles } from "../../../styles/globalStyles";
 
 interface DescriptionItem {
     id: number;
@@ -10,12 +11,8 @@ interface DescriptionItem {
     text2?: string;
     title?: string;
     image?: string;
-    title2?:string;
-    text3?: string;
-    title3?:string;
-    text4?: string;
-    title4?:string;
 }
+
 
 export default function Diagnostico() {
     // Declaramos las variables
@@ -27,31 +24,31 @@ export default function Diagnostico() {
     }, []);
 
     return (
-        <View style={styles.mainContainer}>
-            <TopBar tittle="DIAGNOSTICO" />
-            <View style={styles.middleContainer}>
+        <View style={globalStyles.mainContainer}>
+            <TopBar title="Diagnostico" />
+            <View style={globalStyles.middleContainer}>
                 <ScrollView>
+                    <View style={globalStyles.textContainer}>
+                        <Image
+                            source={require("../../../assets/images/DiabetesDiagnostico.jpg")}
+                            style={globalStyles.image}
+                        />
+                    </View>
                     {description.map((description) => (
-                        <View key={description.id} style={styles.textContainer}>
+                        <View key={description.id} style={globalStyles.textContainer}>
+                            {description.title && (
+                                <Text style={globalStyles.textTitle}>{description.title}</Text>
+                            )}
+                            <Text style={globalStyles.text}>{description.text}</Text>
+                            {description.text2 && (
+                                <Text style={globalStyles.text2}>{description.text2}</Text>
+                            )}
                             {description.image && (
                                 <Image
-                                source={require("../../../assets/images/DiabetesDiagnostico.jpg")}
-                                  style={styles.image}
+                                    style={globalStyles.image}
+                                    source={images[description.image]}
                                 />
                             )}
-                            {description.title && <Text style={styles.textTitle}>{description.title}</Text>}
-                            {description.text && <Text style={styles.text}>{description.text}</Text>}
-
-                            {description.title2 && <Text style={styles.textTitle}>{description.title2}</Text>}
-                            {description.text2 && <Text style={styles.text}>{description.text2}</Text>}
-
-                            {description.title3 && <Text style={styles.textTitle}>{description.title3}</Text>}
-                            {description.text3 && <Text style={styles.text}>{description.text3}</Text>}
-
-                            {description.title4 && <Text style={styles.textTitle}>{description.title4}</Text>}
-                            {description.text4 && <Text style={styles.text}>{description.text4}</Text>}
-                        
-
                         </View>
                     ))}
                 </ScrollView>
@@ -59,53 +56,3 @@ export default function Diagnostico() {
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    // Contenedores
-    mainContainer: {
-        flex: 1
-    },
-    middleContainer: {
-        flex: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    textContainer: {
-        flex:1,
-        margin: 10,
-    },
-    // Textos
-    title: {
-        fontSize: 45,
-        fontFamily: 'Kadwa-Bold',
-        color: '#FFFFFF'
-    },
-    text: {
-        fontSize: 16,
-        color: '#4A4A4A',
-        fontFamily: 'Kadwa-Regular',
-        textAlign: 'justify',  
-    },
-    text2: {
-        fontSize: 16,
-        color: '#4A4A4A',
-        fontFamily: 'Kadwa-Regular',
-        textAlign: 'justify',
-        marginTop: 15,
-    },
-    // Imagen
-    image: {
-        width: "100%",
-        height: 188,
-        marginVertical: 10,
-        resizeMode: 'cover',
-    },
-    textTitle: {
-        textAlign: 'center',
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#4A4A4A',
-        marginBottom:10,
-    },
-})

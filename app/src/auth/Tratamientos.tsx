@@ -25,7 +25,7 @@ export default function Tratamientos() {
 
   return (
     <View style={styles.mainContainer}>
-      <TopBar tittle="Tratamientos" />
+      <TopBar title="Tratamientos" />
       
       <View style={styles.middleContainer}>
         

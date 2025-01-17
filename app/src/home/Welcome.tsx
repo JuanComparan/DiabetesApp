@@ -41,7 +41,7 @@ export default function Welcome({ navigation }: Props) {
         <View style={styles.mainContainer}>
             <SafeAreaView style={styles.topScreen}>
                 <View style={styles.titleTextContainer}>
-                    <Text style={styles.title}>BIENVENIDO</Text>
+                    <Text style={styles.title}>Bienvenido</Text>
                 </View>
             </SafeAreaView>
             <View style={styles.middleContainer}>
@@ -79,9 +79,7 @@ const styles = StyleSheet.create({
         flex: 1.5,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#29C73D',
-        borderBottomWidth: 2,
-        borderColor: '#2CDA43'
+        backgroundColor: '#58BBF6',
     },
     textContainer: {
         justifyContent: 'center',
@@ -111,6 +109,7 @@ const styles = StyleSheet.create({
     },
     descriptionTextContainer: {
         margin: 5,
+        alignSelf: 'center',
     },
     buttonContainer: {
         height: '40%',
@@ -134,8 +133,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Kadwa-Regular'
     },
     descriptionText: {
-        fontSize: 18,
+        fontSize: 16,
         color: "#4A4A4A",
-        fontFamily: 'Kadwa-Regular'
+        fontFamily: 'Kadwa-Regular',
     },
 })

@@ -1,4 +1,4 @@
-import { SafeAreaView, View, StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -8,51 +8,41 @@ interface Props {
     navigation: StackNavigationProp<any>;
 }
 export default function Menu({ navigation }: Props) {
-
-
     return (
         <View style={styles.mainContainer}>
-            <TopBar tittle="TODO SOBRE LA DIABETES" />
+            <TopBar title="La diabetes" />
             <View style={styles.middleContainer}>
                 <View style={styles.descriptionContainer}>
                     <View style={styles.middle}>
                         <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('QueEs')}>
-                            <View style={{ flex: 1 }}>
-                                <Text style={styles.descriptionText}>¿Que es?</Text>
-                                <Image
-                                    source={require('./../../../assets/images/queEs.png')} // Imagen desde URL
-                                    style={styles.image}
-                                />
-                            </View>
+                            <Text style={styles.descriptionText}>¿Que es?</Text>
+                            <Image
+                                source={require('./../../../assets/images/queEs.png')} // Imagen desde URL
+                                style={styles.image}
+                            />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Diagnostico')}>
-                            <View style={{ flex: 1 }}>
-                                <Text style={styles.descriptionText}>Diagnostico</Text>
-                                <Image
-                                    source={require('./../../../assets/images/Diagnostico.png')} // Imagen desde URL
-                                    style={styles.image}
-                                />
-                            </View>
+                            <Text style={styles.descriptionText}>Diagnostico</Text>
+                            <Image
+                                source={require('./../../../assets/images/Diagnostico.png')} // Imagen desde URL
+                                style={styles.image}
+                            />
                         </ TouchableOpacity>
                     </View>
                     <View style={styles.middle}>
                         <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Dieta')}>
-                            <View style={{flex:1}}>
-                                <Text style={styles.descriptionText}>Dietas</Text>
-                                <Image
-                                    source={require('./../../../assets/images/Dieta.png')} // Imagen desde URL
-                                    style={styles.image}
-                                />
-                            </View>
+                            <Text style={styles.descriptionText}>Dietas</Text>
+                            <Image
+                                source={require('./../../../assets/images/Dieta.png')} // Imagen desde URL
+                                style={styles.image}
+                            />
                         </ TouchableOpacity>
                         <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Tratamientos')}>
-                            <View style={{flex:1}}>
-                                <Text style={styles.descriptionText}>Tratamiento</Text>
-                                <Image
-                                    source={require('./../../../assets/images/Tratamiento.png')} // Imagen desde URL
-                                    style={styles.image}
-                                />
-                            </View>
+                            <Text style={styles.descriptionText}>Tratamiento</Text>
+                            <Image
+                                source={require('./../../../assets/images/Tratamiento.png')} // Imagen desde URL
+                                style={styles.image}
+                            />
                         </ TouchableOpacity>
                     </View>
                 </View>
@@ -86,10 +76,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    BoxContainer: {
+        width: '48%',
+        aspectRatio: 1,
+        borderRadius: 25,
+        elevation: 8,
+        backgroundColor: '#FFFFFF',
+        alignItems: "center",
+        justifyContent: 'center',
+    },
     descriptionContainer: {
-        height: '60%',
+        height: '55%',
         width: '85%',
-        padding: 5,
+        padding: 10,
         borderRadius: 20,
         backgroundColor: '#F4F4F4',
         elevation: 10,
@@ -111,23 +110,13 @@ const styles = StyleSheet.create({
         color: '#4A4A4A',
         fontFamily: 'Kadwa-Regular'
     },
-    BoxContainer: {
-        flex: 1,
-        height: 135,
-        borderRadius: 25,
-        elevation: 8,
-        backgroundColor: '#FFFFFF',
-        alignItems: "center",
-        justifyContent: 'center',
-        marginHorizontal: 10,
-        marginVertical: 10,
-    },
     middle: {
+        flex: 1,
         flexDirection: "row",
+        gap: 10,
     },
     image: {
-        width: 100, // Ancho de la imagen
-        height: 100, // Altura de la imagen
-        resizeMode: "contain",
+        width: '50%', // Ancho de la imagen
+        height: '50%', // Altura de la imagen
     },
 })

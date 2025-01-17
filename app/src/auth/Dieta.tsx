@@ -1,6 +1,4 @@
-import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView, Image } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useFonts } from "expo-font";
+import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
 import data from './../../../json/data.json';
 import { useEffect, useState } from "react";
 import TopBar from "../components/TopBar";
@@ -28,7 +26,7 @@ export default function Dieta() {
 
     return (
         <View style={styles.mainContainer}>
-            <TopBar tittle="Dietas"/>
+            <TopBar title="Dietas"/>
             <View style={styles.middleContainer}>
             <ScrollView>
                     {description.map((description) => (
