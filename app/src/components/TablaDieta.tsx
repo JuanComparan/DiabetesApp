@@ -32,7 +32,7 @@ export default function TablaDieta() {
             {groupedDescription.map((group, index) => (
                 <View key={index} style={styles.contentTable}>
                     {group.map((item) => (
-                        <View style={styles.boxTable}>
+                        <View key={item.id} style={styles.boxTable}>
                             <View style={styles.imageBox}>
                                 <Image
                                     style={styles.image}
@@ -60,14 +60,15 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     table: {
         width: width * 0.98,
-        height: height * 0.85,
+        height: height,
         marginHorizontal: 4,
+        marginVertical: 10,
         backgroundColor: '#F5EFE7'
     },
     topTable: {
         flex: 0.75,
-        borderWidth: 1,
-        borderColor: '#FCFDC0',
+        borderWidth: 2,
+        borderColor: '#DDDEA8',
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -75,14 +76,17 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         borderWidth: 1,
+        borderColor: '#DDDEA8'
     },
     boxTable: {
         flex: 1,
         flexDirection: 'row',
-        borderWidth: 1,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
+        borderColor: '#DDDEA8'
     },
     imageBox: {
-        flex: 1,
+        flex: 0.75,
     },
     textBox: {
         flex: 1,
@@ -101,11 +105,11 @@ const styles = StyleSheet.create({
     },
     // Texto
     text: {
-        fontSize: 12,
+        fontSize: 10,
         textAlign: 'center'
     },
     title: {
-        fontSize: 20,
+        fontSize: 12,
         textAlign: 'center',
         fontWeight: 'semibold'
     },

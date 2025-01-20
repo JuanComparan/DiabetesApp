@@ -9,19 +9,21 @@ const images: { [key: string]: any} = {
     "diagnostico3.png" : require("./diagnostico3.jpeg"),
     "diagnostico4.png" : require("./diagnostico4.jpg"),
     // DIETAS imagenes
-    "dietas1.png" : require("./dietas1.jpg"),
+    "dietas1.png" : require("./dietas1.png"),
     "dietas2.png" : require("./dietas2.jpg"),
     // TABLA imagenes
     "tablaDieta1.png" : require("./tablaDieta1.png"),
     "tablaDieta2.png" : require("./tablaDieta2.png"),
-    "tablaDieta3.png" : require("./tablaDieta2.png"),
-    "tablaDieta4.png" : require("./tablaDieta2.png"),
-    "tablaDieta5.png" : require("./tablaDieta2.png"),
-    "tablaDieta6.png" : require("./tablaDieta2.png"),
-    "tablaDieta7.png" : require("./tablaDieta2.png"),
-    "tablaDieta8.png" : require("./tablaDieta2.png"),
-    "tablaDieta9.png" : require("./tablaDieta2.png"),
-    "tablaDieta10.png" : require("./tablaDieta2.png"),
+    "tablaDieta3.png" : require("./tablaDieta3.png"),
+    "tablaDieta4.png" : require("./tablaDieta4.png"),
+    "tablaDieta5.png" : require("./tablaDieta5.png"),
+    "tablaDieta6.png" : require("./tablaDieta6.png"),
+    "tablaDieta7.png" : require("./tablaDieta7.png"),
+    "tablaDieta8.png" : require("./tablaDieta8.png"),
+    "tablaDieta9.png" : require("./tablaDieta9.png"),
+    "tablaDieta10.png" : require("./tablaDieta10.png"),
+    // TRATAMIENTO imagenes
+    "tratamiento1.png" : require("./tratamiento1.jpg"),
 };
 
 export default images;

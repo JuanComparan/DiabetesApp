@@ -74,23 +74,25 @@
     "Tratamientos": [
         {
             "id": 1,
-            "title":"Tratamiento",
-            "image":"TRATAMIENTOS.jpg"   
+            "text" : "El tratamiento de la diabetes (tipo 1 y tipo 2) se centra en mantener niveles de glucosa en sangre saludables. Aquí tienes un resumen general:"
         },
         {
             "id": 2,
-            "title2":"TIPO 1",
-            "title3":"TIPO 2",
-            "text3": "La diabetes tipo 2 puede controlarse y hasta revertirse simplemente con dieta y ejercicio, pero muchas personas necesitan apoyo adicional. Si los cambios en el estilo de vida no son suficientes, tu médico puede recetar medicamentos para ayudar a tu cuerpo a usar la insulina de manera más efectiva. \nControlar tu azúcar en sangre también es una parte esencial del control de la diabetes tipo 2. Es la única manera de saber si alcanzas tus niveles objetivo.",
-            "text2": "No hay cura para la diabetes tipo 1. Las personas con diabetes tipo 1 no producen insulina, así que se la deben inyectar regularmente en el cuerpo. Algunas personas se inyectan en el tejido blando como el estómago, el brazo, los glúteos, varias veces al día. \n \nOtras personas usan bombas de insulina. Las bombas de insulina proveen una cantidad regular de insulina al cuerpo a través de un pequeño tubo. La prueba de azúcar en sangre es una parte esencial para controlar la diabetes tipo 1, debido a que los niveles pueden subir y bajar rápidamente."
-
+            "title":"Tratamientos comunes para ambos tipos:",
+            "punto1": "1.- Monitoreo de glucosa: Medir regularmente los niveles de glucosa en sangre.",
+            "punto2": "2.- Dieta balanceada: Comer alimentos saludables, controlando los carbohidratos y manteniendo un peso adecuado.",
+            "punto3": "3.- Ejercicio regular: Ayuda a mejorar la sensibilidad a la insulina y controla los niveles de glucosa.",
+            "punto4": "4.- Medicamentos:",
+            "punto4.1" : "* Tipo 1: Insulina es esencial, con diferentes tipos según la duración de acción.",
+            "punto4.2" : "* Tipo 2: Medicamentos orales (como metformina), y en casos más graves, insulina.",
+            "punto5": "5.- Control de comorbilidades: Tratar problemas adicionales como hipertensión o colesterol alto.",
         }
 
     ],
     "Tabla": [
         {
             "id" : 1,
-            "title" : "Porotes",
+            "title" : "Leguminosas",
             "text" : "contiene grandes cantidades de fibra, magnesio y potasio.",
             "image" : "tablaDieta1.png"
         },
@@ -102,51 +104,51 @@
         },
         {
             "id" : 3,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Vegetales de hoja verde",
+            "text" : "proporcionan una buena cantidad de fibra, proteinas, vitaminas y minerales.",
+            "image" : "tablaDieta3.png"
         },
         {
             "id" : 4,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Sálmon",
+            "text" : "reduce los triglicéridos,la presión arterial y las inflamaciones.",
+            "image" : "tablaDieta4.png"
         },
         {
             "id" : 5,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Citricos",
+            "text" : "contienen cantidades abundantes de vitamina C y fibra.",
+            "image" : "tablaDieta5.png"
         },
         {
             "id" : 6,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Alimentos integrales",
+            "text" : "contienen acido folico, ácidos grasos omega 3. magnesio, cromo, fibra y potasio (el pan blanco no contiene ningunos de esos elementos).",
+            "image" : "tablaDieta6.png"
         },
         {
             "id" : 7,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Batatas",
+            "text" : "contienen más fibra saludable, antioxidantes y vitamina A que las papas blancas.",
+            "image" : "tablaDieta7.png"
         },
         {
             "id" : 8,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Frutos secos",
+            "text" : "contienen grandes cantidades de grasas saludables y fibra.",
+            "image" : "tablaDieta8.png"
         },
         {
             "id" : 9,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Frutos del bosque",
+            "text" : "una excelente fuente de antioxidantes, fibra y vitaminas.",
+            "image" : "tablaDieta9.png"
         },
         {
             "id" : 10,
-            "title" : "Tomates",
-            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
-            "image" : "tablaDieta2.png"
+            "title" : "Productos lácteos descremados",
+            "text" : "proporcionan vitamina D. Las bacterias probióticas del yogur ayudan a mantener sanos los intestinos y estimulan la inmunidad.",
+            "image" : "tablaDieta10.png"
         }
     ]
 

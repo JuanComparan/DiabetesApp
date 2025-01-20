@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     topScreen: {
-        flex: 1.3,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#58BBF6',

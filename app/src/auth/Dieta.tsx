@@ -46,12 +46,6 @@ export default function Dieta() {
                             )}
                         </View>
                     ))}
-                    <View>
-                        <Image
-                            source={require("../../../assets/images/dietas2.jpg")}
-                            style={styles.image}
-                        />
-                    </View>
                     <TablaDieta />
                 </ScrollView>
             </View>

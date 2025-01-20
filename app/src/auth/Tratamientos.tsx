@@ -6,13 +6,17 @@ import data from "./../../../json/data.json";
 
 interface DescriptionItem {
   id: number;
-  text: string;
   title?: string;
-  title2: string;
-  text2: string;
+  text?: string;
+  text2?: string;
+  punto1?: string;
+  punto2?: string;
+  punto3?: string;
+  punto4?: string;
+  punto41?: string;
+  punto42?: string;
+  punto5?: string;
   image?: string;
-  title3: string;
-  text3: string;
 }
 
 export default function Tratamientos() {
@@ -26,14 +30,8 @@ export default function Tratamientos() {
   return (
     <View style={styles.mainContainer}>
       <TopBar title="Tratamientos" />
-      
       <View style={styles.middleContainer}>
-        
         <View style={styles.textContainer}>
-                <Image
-                source={require("../../../assets/images/diabetesQueEs1.png")}
-                style={styles.image}
-                />
         </View>
         {description.map((item) => {
           if (item.title2 && item.title3) {
