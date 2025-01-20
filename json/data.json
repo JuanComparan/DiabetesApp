@@ -28,9 +28,9 @@
     "Diagnostico": [
         {
             "id": 1,
-            "title": "DIAGNOSTICO",
-            "text": "Hay varias formas de diagnosticar la diabetes. Por lo general, cada método debe repetirse en un segundo día para diagnosticar la diabetes. La primera prueba que se usa para diagnosticar tanto la diabetes tipo 1 como la tipo 2 es conocida como la prueba A1C o de hemoglobina glucosilada. Esta prueba de sangre determina tu nivel promedio de azúcar en sangre en los últimos 2 a 3 meses. Tu médico puede extraer sangre o pincharte el dedo levemente. Mientras más altos hayan sido tus niveles de azúcar en sangre durante los últimos meses, más alto será tu nivel de A1C. Los resultados de la prueba se expresan como un porcentaje. Un nivel de A1C de 6.5 por ciento o más indica diabetes. La prueba A1C no es precisa para las personas con anemia falciforme o traza de anemia falciforme. Si tienes esta afección o traza, entonces tu médico tendrá que usar una prueba distinta.",
-            
+            "text": "Hay varias formas de diagnosticar la diabetes. Por lo general, cada método debe repetirse en un segundo día para diagnosticar la diabetes. La primera prueba que se usa para diagnosticar tanto la diabetes tipo 1 como la tipo 2 es conocida como la prueba A1C o de hemoglobina glucosilada. Esta prueba de sangre determina tu nivel promedio de azúcar en sangre en los últimos 2 a 3 meses. Tu médico puede extraer sangre o pincharte el dedo levemente.",
+            "text2" : " Mientras más altos hayan sido tus niveles de azúcar en sangre durante los últimos meses, más alto será tu nivel de A1C. Los resultados de la prueba se expresan como un porcentaje. Un nivel de A1C de 6.5 por ciento o más indica diabetes. La prueba A1C no es precisa para las personas con anemia falciforme o traza de anemia falciforme. Si tienes esta afección o traza, entonces tu médico tendrá que usar una prueba distinta.",
+            "image" : "diagnostico4.png"            
         },
         {
             "id": 2,
@@ -41,33 +41,34 @@
         {
             "id": 3,
             "title":"Prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés)",
-            "text": "La prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés) es una prueba de dos horas que analiza tus niveles de glucosa (azúcar) en sangre antes y dos horas después de tomar una bebida dulce especial. Esta prueba le indica al médico la manera en que tu cuerpo procesa el azúcar. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl a las 2 horas"
+            "text": "La prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés) es una prueba de dos horas que analiza tus niveles de glucosa (azúcar) en sangre antes y dos horas después de tomar una bebida dulce especial. Esta prueba le indica al médico la manera en que tu cuerpo procesa el azúcar. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl a las 2 horas",
+            "image": "diagnostico2.png"
         },
         {
             "id": 4,
             "title":"Prueba aleatoria (también llamada casual) de glucosa plasmática",
-            "text": "Esta prueba es un análisis de sangre que se hace en cualquier momento del día en que tengas síntomas graves de diabetes. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl."
+            "text": "Esta prueba es un análisis de sangre que se hace en cualquier momento del día en que tengas síntomas graves de diabetes. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl.",
+            "image" : "diagnostico3.png"
         }
         
     ],
     "Dietas": [
         {
             "id": 1,
-            "title":"Dieta",
             "text":"El control nutricional es una parte importante de la vida para las personas con diabetes.",
-            "image":"DIETAS.jpg"
+            "image":"dietas1.png"
             
         },
         {
             "id": 2,
-            "title2": "TIPOS DE DIETA PARA DIABETES TIPO 1",
-            "text2": "Si tienes diabetes tipo 1, trabaja con tu médico para identificar cuánta insulina puedes necesitar inyectarte después de consumir cierto tipo de alimentos.Por ejemplo, los carbohidratos pueden causar que los niveles de azúcar en sangre aumenten rápidamente en las personas con diabetes tipo 1. Necesitarás contrarrestarlo recibiendo insulina, pero necesitarás saber cuánta insulina recibir."
-            
+            "title": "TIPOS DE DIETA PARA DIABETES TIPO 1",
+            "text": "Si tienes diabetes tipo 1, trabaja con tu médico para identificar cuánta insulina puedes necesitar inyectarte después de consumir cierto tipo de alimentos.",
+            "text2" : " Por ejemplo, los carbohidratos pueden causar que los niveles de azúcar en sangre aumenten rápidamente en las personas con diabetes tipo 1. Necesitarás contrarrestarlo recibiendo insulina, pero necesitarás saber cuánta insulina recibir."
         },
         {
             "id": 3,
-            "title3":"TIPOS DE DIETA PARA DIABETES TIPO 2",
-            "text3": "Las personas con diabetes tipo 2 necesitan enfocarse en una alimentación sana. La pérdida de peso con frecuencia es parte de los planes de tratamiento de la diabetes tipo 2, así que tu médico puede recomendarte un plan de alimentación bajo en calorías. Esto podría significar reducir tu consumo de grasas animales y comida chatarra."
+            "title":"TIPOS DE DIETA PARA DIABETES TIPO 2",
+            "text": "Las personas con diabetes tipo 2 necesitan enfocarse en una alimentación sana. La pérdida de peso con frecuencia es parte de los planes de tratamiento de la diabetes tipo 2, así que tu médico puede recomendarte un plan de alimentación bajo en calorías. Esto podría significar reducir tu consumo de grasas animales y comida chatarra."
         }  
     ],
     "Tratamientos": [
@@ -85,6 +86,68 @@
 
         }
 
+    ],
+    "Tabla": [
+        {
+            "id" : 1,
+            "title" : "Porotes",
+            "text" : "contiene grandes cantidades de fibra, magnesio y potasio.",
+            "image" : "tablaDieta1.png"
+        },
+        {
+            "id" : 2,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 3,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 4,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 5,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 6,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 7,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 8,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 9,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 10,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        }
     ]
 
 }

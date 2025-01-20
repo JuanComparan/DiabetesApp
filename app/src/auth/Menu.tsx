@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     },
     middleContainer: {
         flex: 4,
-        alignItems: 'center',
         justifyContent: 'center',
+        alignItems: 'center',
     },
     BoxContainer: {
         width: '48%',
@@ -86,12 +86,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     descriptionContainer: {
-        height: '55%',
-        width: '85%',
+        height: '70%',
+        width: '95%',
         padding: 10,
         borderRadius: 20,
-        backgroundColor: '#F4F4F4',
-        elevation: 10,
     },
     descriptionText: {
         fontSize: 12,
@@ -113,10 +111,13 @@ const styles = StyleSheet.create({
     middle: {
         flex: 1,
         flexDirection: "row",
-        gap: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 15,
     },
     image: {
         width: '50%', // Ancho de la imagen
         height: '50%', // Altura de la imagen
+        resizeMode: 'contain'
     },
 })

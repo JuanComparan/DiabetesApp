@@ -28,12 +28,6 @@ export default function Diagnostico() {
             <TopBar title="Diagnostico" />
             <View style={globalStyles.middleContainer}>
                 <ScrollView>
-                    <View style={globalStyles.textContainer}>
-                        <Image
-                            source={require("../../../assets/images/DiabetesDiagnostico.jpg")}
-                            style={globalStyles.image}
-                        />
-                    </View>
                     {description.map((description) => (
                         <View key={description.id} style={globalStyles.textContainer}>
                             {description.title && (
