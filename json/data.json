@@ -28,8 +28,8 @@
     "Diagnostico": [
         {
             "id": 1,
-            "text": "Hay varias formas de diagnosticar la diabetes. Por lo general, cada método debe repetirse en un segundo día para diagnosticar la diabetes. La primera prueba que se usa para diagnosticar tanto la diabetes tipo 1 como la tipo 2 es conocida como la prueba A1C o de hemoglobina glucosilada. Esta prueba de sangre determina tu nivel promedio de azúcar en sangre en los últimos 2 a 3 meses. Tu médico puede extraer sangre o pincharte el dedo levemente.",
-            "text2" : " Mientras más altos hayan sido tus niveles de azúcar en sangre durante los últimos meses, más alto será tu nivel de A1C. Los resultados de la prueba se expresan como un porcentaje. Un nivel de A1C de 6.5 por ciento o más indica diabetes. La prueba A1C no es precisa para las personas con anemia falciforme o traza de anemia falciforme. Si tienes esta afección o traza, entonces tu médico tendrá que usar una prueba distinta.",
+            "text": "La diabetes se diagnostica mediante varias pruebas, siendo la principal la prueba A1C o de hemoglobina glucosilada, que mide el nivel promedio de azúcar en sangre de los últimos 2-3 meses. Esta prueba se realiza con una muestra de sangre, ya sea mediante extracción o un leve pinchazo en el dedo, y generalmente debe repetirse para confirmar el diagnóstico.",
+            "text2" : "Un nivel de A1C más alto indica niveles elevados de azúcar en sangre en los últimos meses. Un resultado del 6.5 % o más confirma diabetes. Sin embargo, la prueba no es precisa en personas con anemia falciforme, por lo que se requiere un método alternativo en estos casos.",
             "image" : "diagnostico4.png"            
         },
         {
@@ -74,7 +74,8 @@
     "Tratamientos": [
         {
             "id": 1,
-            "text" : "El tratamiento de la diabetes (tipo 1 y tipo 2) se centra en mantener niveles de glucosa en sangre saludables. Aquí tienes un resumen general:"
+            "text" : "El tratamiento de la diabetes (tipo 1 y tipo 2) se centra en mantener niveles de glucosa en sangre saludables. Aquí tienes un resumen general:",
+            "image" : "tratamiento1.png"
         },
         {
             "id": 2,
@@ -83,11 +84,10 @@
             "punto2": "2.- Dieta balanceada: Comer alimentos saludables, controlando los carbohidratos y manteniendo un peso adecuado.",
             "punto3": "3.- Ejercicio regular: Ayuda a mejorar la sensibilidad a la insulina y controla los niveles de glucosa.",
             "punto4": "4.- Medicamentos:",
-            "punto4.1" : "* Tipo 1: Insulina es esencial, con diferentes tipos según la duración de acción.",
-            "punto4.2" : "* Tipo 2: Medicamentos orales (como metformina), y en casos más graves, insulina.",
-            "punto5": "5.- Control de comorbilidades: Tratar problemas adicionales como hipertensión o colesterol alto.",
+            "punto41" : "* Tipo 1: Insulina es esencial, con diferentes tipos según la duración de acción.",
+            "punto42" : "* Tipo 2: Medicamentos orales (como metformina), y en casos más graves, insulina.",
+            "punto5": "5.- Control de comorbilidades: Tratar problemas adicionales como hipertensión o colesterol alto."
         }
-
     ],
     "Tabla": [
         {

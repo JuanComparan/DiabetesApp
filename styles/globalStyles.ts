@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { width, height } = Dimensions.get('window');
 
 export const globalStyles = StyleSheet.create({
     // Contenedores
@@ -45,8 +47,9 @@ export const globalStyles = StyleSheet.create({
     },
     // Imagen
     image: {
-        width: "100%",
-        height: 300,
+        width: width * 0.8,
+        height: height * 0.25,
+        alignSelf: 'center',
         marginVertical: 10,
         resizeMode: 'stretch',
     },
