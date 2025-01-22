@@ -10,6 +10,7 @@ import Tratamientos from "./auth/Tratamientos";
 import Diagnostico from "./auth/Diagnostico";
 import Registro from "./home/Registro";
 import Login from "./home/Login";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -19,57 +20,59 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName='Welcome'
-        screenOptions={{
-          headerShown: false,
-          gestureEnabled: true,
-          animation: "fade_from_bottom"
-        }}
-      >
-        <Stack.Screen
-          name='Welcome'
-          component={Welcome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Menu'
-          component={Menu}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='QueEs'
-          component={QueEs}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Tratamientos'
-          component={Tratamientos}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Dieta'
-          component={Dieta}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Diagnostico'
-          component={Diagnostico}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Registro'
-          component={Registro}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Login'
-          component={Login}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName='Welcome'
+          screenOptions={{
+            headerShown: false,
+            gestureEnabled: true,
+            animation: "fade_from_bottom"
+          }}
+        >
+          <Stack.Screen
+            name='Welcome'
+            component={Welcome}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Menu'
+            component={Menu}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='QueEs'
+            component={QueEs}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Tratamientos'
+            component={Tratamientos}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Dieta'
+            component={Dieta}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Diagnostico'
+            component={Diagnostico}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Registro'
+            component={Registro}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Login'
+            component={Login}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 
