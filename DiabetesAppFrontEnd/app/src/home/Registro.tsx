@@ -47,7 +47,7 @@ export default function Registro({ navigation }: Props) {
     return (
         <View style={globalStyles.mainContainer}>
             <TopBar title="Registro" />
-            <View style={globalStyles.middleContainer}>
+            <View style={[globalStyles.middleContainer, {flex: 3}]}>
                 <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
                 <InputComponent text="Contraseña" value={password} variable={setPassword} securityPassword />
                 <View style={globalStyles.inputContainer}>

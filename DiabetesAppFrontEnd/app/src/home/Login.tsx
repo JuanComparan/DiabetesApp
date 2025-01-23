@@ -41,7 +41,7 @@ export default function Login({ navigation }: Props) {
     return (
         <View style={globalStyles.mainContainer}>
             <TopBar title="Iniciar Sesión" />
-            <View style={globalStyles.middleContainer}>
+            <View style={[globalStyles.middleContainer, {flex: 3}]}>
                 <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
                 <InputComponent text="Contraseña" value={password} variable={setPassword} securityPassword />
             </View>
