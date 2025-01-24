@@ -39,7 +39,7 @@ export default function Diagnostico() {
                             )}
                             {description.image && (
                                 <Image
-                                    style={globalStyles.image}
+                                    style={globalStyles.image1024x1024}
                                     source={images[description.image]}
                                 />
                             )}

@@ -3,6 +3,7 @@ const images: { [key: string]: any} = {
     // QUE ES imagenes
     "queEs1.png" : require("./diabetesQueEs1.png"),
     "queEs2.png" : require("./diabetesQueEs2.png"),
+    "queEs3.png" : require("./diabetesQueEs3.png"),
     // DIAGNOSTICO imagenes
     "diagnostico1.png" : require("./diagnostico1.png"),
     "diagnostico2.png" : require("./diagnostico2.png"),
@@ -22,7 +23,7 @@ const images: { [key: string]: any} = {
     "tablaDieta9.png" : require("./tablaDieta9.png"),
     "tablaDieta10.png" : require("./tablaDieta10.png"),
     // TRATAMIENTO imagenes
-    "tratamiento1.png" : require("./tratamiento1.jpg"),
+    "tratamiento1.png" : require("./tratamiento1.png"),
 };
 
 export default images;

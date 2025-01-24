@@ -44,7 +44,13 @@ export default function QueEs() {
                             )}
                             {description.image && (
                                 <Image
-                                    style={globalStyles.image}
+                                    style={[
+                                        description.id === 1
+                                            ? globalStyles.image
+                                            : (description.id === 2 || description.id === 3)
+                                            ? globalStyles.image1024x1024
+                                            : globalStyles.image
+                                    ]}
                                     source={images[description.image]}
                                 />
                             )}

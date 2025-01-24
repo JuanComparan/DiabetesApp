@@ -23,7 +23,6 @@ interface DescriptionItem {
 
 export default function Tratamientos() {
   const [description, setDescription] = useState<DescriptionItem[]>([]);
-  const [text, setText] = useState<string | null>(null);
 
   useEffect(() => {
     setDescription(data.Tratamientos || []);
@@ -44,7 +43,7 @@ export default function Tratamientos() {
               )}
               {description.image && (
                 <Image
-                  style={globalStyles.image}
+                  style={globalStyles.image1024x1024}
                   source={images[description.image]}
                 />
               )}

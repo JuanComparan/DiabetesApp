@@ -1,5 +1,3 @@
-import { ip } from "./ip";
-
 export const register = async (
     navigation: any,
     email: string,
@@ -26,7 +24,7 @@ export const register = async (
     )
 
     // URL 
-    const url = `http://${ip}:3000/register`;
+    const url = `https://diabetesapp-ad1a.onrender.com/register`;
 
     try {
         const response = await fetch(url, {
@@ -90,7 +88,7 @@ export const iniciarSesion = async (
     };
 
     // URL
-    const url = `http://${ip}:3000/login`;
+    const url = `https://diabetesapp-ad1a.onrender.com/login`;
 
     try {
         const response = await fetch(url, {

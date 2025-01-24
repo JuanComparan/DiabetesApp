@@ -100,4 +100,11 @@ export const globalStyles = StyleSheet.create({
         marginVertical: 10,
         resizeMode: 'stretch',
     },
+    image1024x1024: {
+        width: width * 0.9,
+        height: height * 0.4,
+        alignSelf: 'center',
+        marginVertical: 10,
+        resizeMode: 'stretch',
+    },
 })

@@ -24,7 +24,7 @@ export default function Menu({ navigation }: Props) {
                         <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Diagnostico')}>
                             <Text style={styles.descriptionText}>Diagnostico</Text>
                             <Image
-                                source={require('./../../../assets/images/Diagnostico.png')} // Imagen desde URL
+                                source={require('./../../../assets/images/iconoDiagnostico.png')} // Imagen desde URL
                                 style={styles.image}
                             />
                         </ TouchableOpacity>
@@ -40,7 +40,7 @@ export default function Menu({ navigation }: Props) {
                         <TouchableOpacity style={styles.BoxContainer} onPress={() => navigation.navigate('Tratamientos')}>
                             <Text style={styles.descriptionText}>Tratamiento</Text>
                             <Image
-                                source={require('./../../../assets/images/Tratamiento.png')} // Imagen desde URL
+                                source={require('./../../../assets/images/iconoTratamiento.png')} // Imagen desde URL
                                 style={styles.image}
                             />
                         </ TouchableOpacity>
