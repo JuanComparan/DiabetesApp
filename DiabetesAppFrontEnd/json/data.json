@@ -1,0 +1,156 @@
+{
+    "Bienvenida": [
+        {
+            "id": 1,
+            "text": "DiabetesApp es una aplicación informativa acerca de la diabetes."
+        }
+    ],
+    "QueEs": [
+        {
+            "id": 1,
+            "text": "Es una enfermedad crónica que se presenta cuando el pancreas no produce la suficiente insulina o el organismo no la utiliza eficazmente, la insulina es la hormona que controla la glucosa en la sangre es decir, la glucemia. Un efecto común de la diabetes no controlada es la hiperglucemia (es decir, la glucemia elevada) que, con el tiempo daña gravemente muchos órganos y sistemas del organismo, sobre todo los nervios y los vasos sanguíneos.",
+            "title": "¿QUE ES?"
+        },
+        {
+            "id" : 2,
+            "title" : "DIABETES TIPO 1",
+            "text" : "El sistema inmunitario del cuerpo es responsable de contrarrestar a los invasores extraños, como los virus y las bacterias dañinas.",
+            "text2" : "En las personas con diabetes tipo 1, el sistema inmunitario confunde las células sanas del propio cuerpo con invasores extraños. El sistema inmunitario ataca y destruye las células beta que producen insulina en el páncreas. Después de que estas células beta son destruidas, el cuerpo no puede producir insulina.",
+            "image" : "queEs2.png"
+        },
+        {
+            "id" : 3,
+            "title" : "DIABETES TIPO 2",
+            "text" : "Las personas con diabetes tipo 2 tienen resistencia a la insulina. El cuerpo todavía produce insulina, pero no puede usarla efectivamente.",
+            "text2" : "Los investigadores no están seguros por qué algunas personas se vuelven resistentes a la insulina y otras no, sin embargo, pueden contribuir varios factores del estilo de vida, incluyendo ser inactivo y tener exceso de peso.",
+            "image" : "queEs3.png"
+        }
+    ],
+    "Diagnostico": [
+        {
+            "id": 1,
+            "text": "La diabetes se diagnostica mediante varias pruebas, siendo la principal la prueba A1C o de hemoglobina glucosilada, que mide el nivel promedio de azúcar en sangre de los últimos 2-3 meses. Esta prueba se realiza con una muestra de sangre, ya sea mediante extracción o un leve pinchazo en el dedo, y generalmente debe repetirse para confirmar el diagnóstico.",
+            "text2" : "Un nivel de A1C más alto indica niveles elevados de azúcar en sangre en los últimos meses. Un resultado del 6.5 % o más confirma diabetes. Sin embargo, la prueba no es precisa en personas con anemia falciforme, por lo que se requiere un método alternativo en estos casos.",
+            "image" : "diagnostico1.png"            
+        },
+        {
+            "id": 2,
+            "title":"Glucosa plasmática en ayunas (FPG)",
+            "text": "Esta prueba mide tus niveles de glucosa (azúcar) en sangre en ayunas. En ayunas significa no comer ni beber nada (excepto agua) durante al menos 8 horas antes de la prueba. Esta prueba generalmente se realiza a primera hora de la mañana, antes del desayuno. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre en ayunas es superior o igual a 126 mg/dl",
+            "image":"diagnostico2.png"
+        },
+        {
+            "id": 3,
+            "title":"Prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés)",
+            "text": "La prueba de tolerancia oral a la glucosa (OGTT, por sus siglas en inglés) es una prueba de dos horas que analiza tus niveles de glucosa (azúcar) en sangre antes y dos horas después de tomar una bebida dulce especial. Esta prueba le indica al médico la manera en que tu cuerpo procesa el azúcar. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl a las 2 horas",
+            "image": "diagnostico4.png"
+        },
+        {
+            "id": 4,
+            "title":"Prueba aleatoria (también llamada casual) de glucosa plasmática",
+            "text": "Esta prueba es un análisis de sangre que se hace en cualquier momento del día en que tengas síntomas graves de diabetes. La diabetes se diagnostica cuando el nivel de glucosa (azúcar) en sangre es superior o igual a 200 mg/dl.",
+            "image" : "diagnostico3.png"
+        }
+        
+    ],
+    "Dietas": [
+        {
+            "id": 1,
+            "text":"El control nutricional es una parte importante de la vida para las personas con diabetes.",
+            "image":"dietas1.png"
+            
+        },
+        {
+            "id": 2,
+            "title": "TIPOS DE DIETA PARA DIABETES TIPO 1",
+            "text": "Si tienes diabetes tipo 1, trabaja con tu médico para identificar cuánta insulina puedes necesitar inyectarte después de consumir cierto tipo de alimentos.",
+            "text2" : " Por ejemplo, los carbohidratos pueden causar que los niveles de azúcar en sangre aumenten rápidamente en las personas con diabetes tipo 1. Necesitarás contrarrestarlo recibiendo insulina, pero necesitarás saber cuánta insulina recibir."
+        },
+        {
+            "id": 3,
+            "title":"TIPOS DE DIETA PARA DIABETES TIPO 2",
+            "text": "Las personas con diabetes tipo 2 necesitan enfocarse en una alimentación sana. La pérdida de peso con frecuencia es parte de los planes de tratamiento de la diabetes tipo 2, así que tu médico puede recomendarte un plan de alimentación bajo en calorías. Esto podría significar reducir tu consumo de grasas animales y comida chatarra."
+        }  
+    ],
+    "Tratamientos": [
+        {
+            "id": 1,
+            "text" : "El tratamiento de la diabetes (tipo 1 y tipo 2) se centra en mantener niveles de glucosa en sangre saludables. Aquí tienes un resumen general:",
+            "image" : "tratamiento1.png"
+        },
+        {
+            "id": 2,
+            "title":"Tratamientos comunes para ambos tipos:",
+            "punto1": "1.- Monitoreo de glucosa: Medir regularmente los niveles de glucosa en sangre.",
+            "punto2": "2.- Dieta balanceada: Comer alimentos saludables, controlando los carbohidratos y manteniendo un peso adecuado.",
+            "punto3": "3.- Ejercicio regular: Ayuda a mejorar la sensibilidad a la insulina y controla los niveles de glucosa.",
+            "punto4": "4.- Medicamentos:",
+            "punto41" : "* Tipo 1: Insulina es esencial, con diferentes tipos según la duración de acción.",
+            "punto42" : "* Tipo 2: Medicamentos orales (como metformina), y en casos más graves, insulina.",
+            "punto5": "5.- Control de comorbilidades: Tratar problemas adicionales como hipertensión o colesterol alto."
+        }
+    ],
+    "Tabla": [
+        {
+            "id" : 1,
+            "title" : "Leguminosas",
+            "text" : "contiene grandes cantidades de fibra, magnesio y potasio.",
+            "image" : "tablaDieta1.png"
+        },
+        {
+            "id" : 2,
+            "title" : "Tomates",
+            "text" : "una excelente fuente de vitaminas C y E y de hierro baja en carbohidratos.",
+            "image" : "tablaDieta2.png"
+        },
+        {
+            "id" : 3,
+            "title" : "Vegetales de hoja verde",
+            "text" : "proporcionan una buena cantidad de fibra, proteinas, vitaminas y minerales.",
+            "image" : "tablaDieta3.png"
+        },
+        {
+            "id" : 4,
+            "title" : "Sálmon",
+            "text" : "reduce los triglicéridos,la presión arterial y las inflamaciones.",
+            "image" : "tablaDieta4.png"
+        },
+        {
+            "id" : 5,
+            "title" : "Citricos",
+            "text" : "contienen cantidades abundantes de vitamina C y fibra.",
+            "image" : "tablaDieta5.png"
+        },
+        {
+            "id" : 6,
+            "title" : "Alimentos integrales",
+            "text" : "contienen acido folico, ácidos grasos omega 3. magnesio, cromo, fibra y potasio (el pan blanco no contiene ningunos de esos elementos).",
+            "image" : "tablaDieta6.png"
+        },
+        {
+            "id" : 7,
+            "title" : "Batatas",
+            "text" : "contienen más fibra saludable, antioxidantes y vitamina A que las papas blancas.",
+            "image" : "tablaDieta7.png"
+        },
+        {
+            "id" : 8,
+            "title" : "Frutos secos",
+            "text" : "contienen grandes cantidades de grasas saludables y fibra.",
+            "image" : "tablaDieta8.png"
+        },
+        {
+            "id" : 9,
+            "title" : "Frutos del bosque",
+            "text" : "una excelente fuente de antioxidantes, fibra y vitaminas.",
+            "image" : "tablaDieta9.png"
+        },
+        {
+            "id" : 10,
+            "title" : "Productos lácteos descremados",
+            "text" : "proporcionan vitamina D. Las bacterias probióticas del yogur ayudan a mantener sanos los intestinos y estimulan la inmunidad.",
+            "image" : "tablaDieta10.png"
+        }
+    ]
+
+}
