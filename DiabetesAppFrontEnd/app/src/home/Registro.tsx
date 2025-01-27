@@ -20,7 +20,7 @@ export default function Registro({ navigation }: Props) {
     // Variable para guardar errores
     const [error, setError] = useState<{
         title: string;
-        errorMessages: string;
+        errorMessages: string[];
     } | null>(null);
 
     const handleAction = async () => {
@@ -89,9 +89,14 @@ export default function Registro({ navigation }: Props) {
                     </View>
                     <View style={globalStyles.bottomContainer}>
                         {error && (
-                            <Text style={globalStyles.error}>
-                                {error.title}
-                            </Text>
+                            <View>
+                                <Text style={globalStyles.error}>
+                                    {error.title}
+                                </Text>
+                                <Text style={globalStyles.error}>
+                                    {error.errorMessages}
+                                </Text>
+                            </View>
                         )}
                         <View>
                             <TouchableOpacity

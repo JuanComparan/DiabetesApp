@@ -5,7 +5,7 @@ export const register = async (
     iHaveDiabeteStrings: any,
     someoneHaveDiabetesString: any,
     onSuccess?: () => void,
-    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string } | null>>
+    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string[] } | null>>
 ) => {
 
     const iHaveDiabetes = Number(iHaveDiabeteStrings);
@@ -38,14 +38,13 @@ export const register = async (
         if (!response.ok) {
             const errorData = await response.json();
 
-            const errorTitle = errorData.message || "Error";
             const errorMessages = [errorData.message || "Error desconocido"];
 
             // Pasar el error con la estructura consistente
             if (setError) {
                 setError({
-                    title: errorTitle,
-                    errorMessages: errorMessages.join(', '),
+                    title: "Error de validación.",
+                    errorMessages: errorMessages,
                 });
             }
 
@@ -67,7 +66,7 @@ export const register = async (
         if (setError) {
             setError({
                 title: "Error de conexión",
-                errorMessages: "No se pudo conectar con el servidor. Intenta más tarde.",
+                errorMessages: ["No se pudo conectar con el servidor. Intenta más tarde."],
             });
         }
         console.error("Error en la solicitud:", error);
@@ -79,7 +78,7 @@ export const iniciarSesion = async (
     email: string,
     password: string,
     onSuccess?: () => void,
-    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string } | null>>
+    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string[] } | null>>
 ) => {
     // DTO de iniciar sesión
     const loginDTO = {
@@ -108,8 +107,8 @@ export const iniciarSesion = async (
             // Pasar el error con la estructura consistente
             if (setError) {
                 setError({
-                    title: errorTitle,
-                    errorMessages: errorMessages.join(', '),
+                    title: "Error de validación.",
+                    errorMessages: errorMessages,
                 });
             }
 
@@ -127,7 +126,7 @@ export const iniciarSesion = async (
         if (setError) {
             setError({
                 title: "Error de conexión",
-                errorMessages: "No se pudo conectar con el servidor. Intenta más tarde.",
+                errorMessages: ["No se pudo conectar con el servidor. Intenta más tarde."],
             });
         }
         console.error("Error en la solicitud:", error);

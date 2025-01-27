@@ -53,9 +53,14 @@ export default function Login({ navigation }: Props) {
                     </View>
                     <View style={globalStyles.bottomContainer}>
                         {error && (
-                            <Text style={globalStyles.error}>
-                                {error.title}
-                            </Text>
+                            <View>
+                                <Text style={globalStyles.error}>
+                                    {error.title}
+                                </Text>
+                                <Text style={globalStyles.error}>
+                                    {error.errorMessages}
+                                </Text>
+                            </View>
                         )}
                         <View>
                             <TouchableOpacity
