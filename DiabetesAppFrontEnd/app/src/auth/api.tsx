@@ -24,7 +24,8 @@ export const register = async (
     )
 
     // URL 
-    const url = `https://diabetesapp-z821.onrender.com/register`;
+    //const url = `https://diabetesapp-z821.onrender.com/register`;
+    const url = `http://10.214.120.146:3000/register`;
 
     try {
         const response = await fetch(url, {
@@ -87,7 +88,8 @@ export const iniciarSesion = async (
     };
 
     // URL
-    const url = `https://diabetesapp-z821.onrender.com/login`;
+    //const url = `https://diabetesapp-z821.onrender.com/login`;
+    const url = `http://10.214.120.146:3000/login`;
 
     try {
         const response = await fetch(url, {

@@ -1,22 +1,9 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { validationResult } = require('express-validator');
 const db = require('../db/db');
-const emailValidator = require('../utils/emailValidator');
 
-// Función de registro
 exports.register = (req, res) => {
-  const message = validationResult(req);
-  if (!message.isEmpty()) {
-    const errorMessages = message.array().map(error => error.msg);
-    return res.status(400).json({ message: errorMessages });
-  }
-
   const { email, password, iHaveDiabetes, someoneHaveDiabetes } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({ message: 'El email y la contraseña son obligatorios.' });
-  }
 
   db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
     if (error) {
@@ -40,16 +27,11 @@ exports.register = (req, res) => {
         res.status(201).json({ message: 'Usuario registrado con éxito' });
       });
     });
-  })
+  });
 };
 
-// Función de login
 exports.login = (req, res) => {
   const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({ message: 'Email y contraseña son requeridos' });
-  }
 
   db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
     if (err || !user) {
