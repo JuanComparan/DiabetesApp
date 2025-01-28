@@ -24,6 +24,7 @@ exports.register = (req, res) => {
         if (err) {
           return res.status(500).json({ message: 'Error al registrar el usuario' });
         }
+        console.log("Usuario registrado, email: ", email);
         res.status(201).json({ message: 'Usuario registrado con éxito' });
       });
     });
@@ -51,6 +52,7 @@ exports.login = (req, res) => {
       }
 
       const token = jwt.sign({ id: user.id, email: user.email }, 'secretKey', { expiresIn: '1h' });
+      console.log("Login exitoso, email: ", email);
       res.json({ message: 'Login exitoso', token });
     });
   });
