@@ -33,9 +33,16 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return res.status(400).json({ message: 'El correo electrónico y la contraseña son obligatorios.' });
+  }
+
   db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
-    if (err || !user) {
-      return res.status(401).json({ message: 'Credenciales incorrectas' });
+    if (err) {
+      return res.status(400).json({ message: 'Hubo un error al realizar la consulta.' });
+    }
+    if (!user) {
+      return res.status(404).json({ message: 'El correo electronico no existe.' });
     }
 
     bcrypt.compare(password, user.password, (err, result) => {
