@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView, Image, Dimensions } from "react-native";
+import { Text, View, ScrollView, Image } from "react-native";
 import data from './../../../json/data.json';
 import images from "../../../assets/images/images";
 import { useEffect, useState } from "react";
@@ -52,13 +52,3 @@ export default function Dieta() {
         </View>
     );
 }
-
-const { width, height } = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-    image: {
-        width: width,
-        height: height * 0.85,
-        resizeMode: 'contain',
-    }
-})

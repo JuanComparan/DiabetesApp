@@ -1,4 +1,4 @@
-import { Image, View, StyleSheet, ScrollView, Text } from "react-native";
+import { Image, View, ScrollView, Text } from "react-native";
 import data from './../../../json/data.json';
 import images from "../../../assets/images/images";
 import TopBar from "../components/TopBar";
@@ -61,8 +61,3 @@ export default function QueEs() {
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    
-})
