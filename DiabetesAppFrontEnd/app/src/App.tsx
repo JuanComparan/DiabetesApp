@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar, StyleSheet } from 'react-native';
+import { StatusBar } from 'react-native';
 import Welcome from './home/Welcome';
 import Menu from "./auth/Menu";
 import { useEffect } from "react";
@@ -75,12 +75,3 @@ export default function App() {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

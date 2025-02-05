@@ -18,7 +18,7 @@ export default function Login({ navigation }: Props) {
     // Variable para guardar errores
     const [error, setError] = useState<{
         title: string;
-        errorMessages: string;
+        errorMessages: string[];
     } | null>(null);
 
     const handleAction = async () => {

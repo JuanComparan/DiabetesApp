@@ -1,3 +1,5 @@
+import Constants from "expo-constants";
+
 export const register = async (
     navigation: any,
     email: string,
@@ -23,8 +25,10 @@ export const register = async (
         "someoneHaveDiabetes: ", someoneHaveDiabetes
     )
 
+    const apiUrl = Constants.extra.apiUrl;
+
     // URL 
-    const url = `https://diabetesapp-z821.onrender.com/register`;
+    const url = `${apiUrl}/register`;
 
     try {
         const response = await fetch(url, {
@@ -86,8 +90,10 @@ export const iniciarSesion = async (
         password
     };
 
+    const apiUrl = Constants.extra.apiUrl;
+
     // URL
-    const url = `https://diabetesapp-z821.onrender.com/login`;
+    const url = `${apiUrl}/login`;
 
     try {
         const response = await fetch(url, {
