@@ -21,7 +21,8 @@
     "react-native-reanimated": "^3.16.7",
     "react-native-safe-area-context": "^5.1.0",
     "react-native-screens": "^4.5.0",
-    "react-native-webview": "^13.13.1"
+    "react-native-webview": "^13.13.1",
+    "expo-constants": "~17.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -2,7 +2,7 @@
   "expo": {
     "name": "DiabetesApp",
     "slug": "DiabetesApp",
-    "version": "1.0.1",
+    "version": "1.2",
     "orientation": "portrait",
     "icon": "./assets/Logo.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/Logo.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.juan_comparan.DiabetesApp"
@@ -31,7 +31,8 @@
     "extra": {
       "eas": {
         "projectId": "079de41b-97fa-4bca-9a02-e08936a1485f"
-      }
+      },
+      "apiUrl": "https://diabetesapp-z821.onrender.com"
     }
   }
 }
