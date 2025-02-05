@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView, Pressable, Image, Dimensions } from "react-native";
+import { Text, View, ScrollView, Image } from "react-native";
 import { useEffect, useState } from "react";
 
 import TopBar from "../components/TopBar";
@@ -60,10 +60,10 @@ export default function Tratamientos() {
                 <Text style={globalStyles.text}>{description.punto4}</Text>
               )}
               {description.punto41 && (
-                <Text style={styles.textSubPoint}>{description.punto41}</Text>
+                <Text style={globalStyles.textSubPoint}>{description.punto41}</Text>
               )}
               {description.punto42 && (
-                <Text style={styles.textSubPoint}>{description.punto42}</Text>
+                <Text style={globalStyles.textSubPoint}>{description.punto42}</Text>
               )}
               {description.punto5 && (
                 <Text style={globalStyles.text}>{description.punto5}</Text>
@@ -75,27 +75,3 @@ export default function Tratamientos() {
     </View >
   );
 }
-
-const { width, height } = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-  // Contenedores
-  informationConatiner: {
-    backgroundColor: "white",
-    width: width * 0.97,
-    height: height * 0.75,
-    marginHorizontal: 5,
-    elevation: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 10
-  },
-  textSubPoint: {
-    fontSize: 16,
-    color: '#4A4A4A',
-    fontFamily: 'Kadwa-Regular',
-    textAlign: 'justify',
-    paddingVertical: 10,
-    paddingHorizontal: 50
-  },
-});

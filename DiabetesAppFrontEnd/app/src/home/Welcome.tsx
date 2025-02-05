@@ -32,24 +32,24 @@ export default function Welcome({ navigation }: Props) {
     // Mostrar pantalla de carga si las fuentes no están listas
     if (!fontsLoaded) {
         return (
-            <View style={styles.mainContainer}>
+            <View style={globalStyles.mainContainer}>
                 <Text>Cargando fuentes...</Text>
             </View>
         );
     }
 
     return (
-        <View style={styles.mainContainer}>
-            <SafeAreaView style={styles.topScreen}>
-                <View style={styles.titleTextContainer}>
-                    <Text style={styles.title}>Bienvenido</Text>
+        <View style={globalStyles.mainContainer}>
+            <SafeAreaView style={[globalStyles.topScreen, {flex: 1.5}]}>
+                <View style={globalStyles.titleTextContainer}>
+                    <Text style={globalStyles.title}>Bienvenido</Text>
                 </View>
             </SafeAreaView>
-            <View style={styles.middleContainer}>
+            <View style={[globalStyles.middleContainer, {flex: 2}]}>
                 {itemToShow ? (
-                    <View key={itemToShow.id} style={styles.descriptionContainer}>
-                        <View style={styles.descriptionTextContainer}>
-                            <Text style={styles.descriptionText}>{itemToShow.text}</Text>
+                    <View key={itemToShow.id} style={globalStyles.descriptionContainerMenu}>
+                        <View style={globalStyles.descriptionTextContainerMenu}>
+                            <Text style={globalStyles.descriptionTextMenu}>{itemToShow.text}</Text>
                         </View>
                     </View>
                 ) : (
@@ -77,55 +77,3 @@ export default function Welcome({ navigation }: Props) {
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    // Contenedores
-    mainContainer: {
-        flex: 1
-    },
-    topScreen: {
-        flex: 1.5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#58BBF6',
-    },
-
-    titleTextContainer: {
-        justifyContent: 'center',
-        marginTop: 30,
-    },
-    middleContainer: {
-        flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    
-    descriptionContainer: {
-        height: '70%',
-        width: '90%',
-        padding: 10,
-        justifyContent: 'center',
-        borderRadius: 20,
-        backgroundColor: '#F4F4F4',
-        elevation: 10,
-    },
-    descriptionTextContainer: {
-        margin: 5,
-        alignSelf: 'center',
-    },
-
-
-    // Textos
-    title: {
-        fontSize: 45,
-        fontFamily: 'Kadwa-Bold',
-        color: '#FFFFFF'
-    },
-
-    descriptionText: {
-        fontSize: 16,
-        color: "#4A4A4A",
-        fontFamily: 'Kadwa-Regular',
-    },
-})

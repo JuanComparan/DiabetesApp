@@ -1,4 +1,5 @@
-import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import { globalStyles } from "../../../styles/globalStyles";
 
 interface topbarPropierties {
     title: string
@@ -6,34 +7,10 @@ interface topbarPropierties {
 
 export default function TopBar({ title }: topbarPropierties) {
     return (
-        <View style={styles.topScreen}>
-            <View style={styles.titleTextContainer}>
-                <Text style={styles.title}>{title}</Text>
+        <View style={globalStyles.topScreen}>
+            <View style={globalStyles.titleTextContainer}>
+                <Text style={[globalStyles.title, { fontSize: 30 }]}>{title}</Text>
             </View>
         </View>
     )
 }
-
-
-const styles = StyleSheet.create({
-    // Contenedores
-    mainContainer: {
-        flex: 1
-    },
-    topScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#58BBF6',
-    },
-    titleTextContainer: {
-        justifyContent: 'center',
-        marginTop: 30,
-    },
-    title: {
-        fontSize: 30,
-        fontFamily: 'Kadwa-Bold',
-        color: '#FFFFFF'
-    },
-
-})
