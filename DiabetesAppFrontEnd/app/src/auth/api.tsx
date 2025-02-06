@@ -25,10 +25,8 @@ export const register = async (
         "someoneHaveDiabetes: ", someoneHaveDiabetes
     )
 
-    const apiUrl = Constants.extra.apiUrl;
-
     // URL 
-    const url = `${apiUrl}/register`;
+    const url = `https://diabetesapp-z821.onrender.com/register`;
 
     try {
         const response = await fetch(url, {
@@ -90,10 +88,8 @@ export const iniciarSesion = async (
         password
     };
 
-    const apiUrl = Constants.extra.apiUrl;
-
     // URL
-    const url = `${apiUrl}/login`;
+    const url = `https://diabetesapp-z821.onrender.com/login`;
 
     try {
         const response = await fetch(url, {

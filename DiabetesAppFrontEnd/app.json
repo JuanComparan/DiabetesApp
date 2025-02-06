@@ -2,7 +2,7 @@
   "expo": {
     "name": "DiabetesApp",
     "slug": "DiabetesApp",
-    "version": "1.2",
+    "version": "1.4",
     "orientation": "portrait",
     "icon": "./assets/Logo.png",
     "userInterfaceStyle": "light",
@@ -22,17 +22,13 @@
       },
       "package": "com.juan_comparan.DiabetesApp"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
     "plugins": [
       "expo-font"
     ],
     "extra": {
       "eas": {
         "projectId": "079de41b-97fa-4bca-9a02-e08936a1485f"
-      },
-      "apiUrl": "https://diabetesapp-z821.onrender.com"
+      }
     }
   }
 }
