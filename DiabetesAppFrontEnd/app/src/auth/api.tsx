@@ -1,4 +1,6 @@
-import Constants from "expo-constants";
+export default interface Respuesta {
+    respuesta: string;
+}
 
 export const register = async (
     navigation: any,
@@ -134,3 +136,37 @@ export const iniciarSesion = async (
         console.error("Error en la solicitud:", error);
     }
 }
+
+export const enviarMensajeChatBot = async (
+    user_id: string,
+    message: string, 
+    setResponse: any
+) => {
+    const chatBotDTO = {
+        user_id,
+        message
+    }
+
+    // URL
+    const url = `http://10.214.109.152:3000/chat`;
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(chatBotDTO),
+        });
+
+        const data = await response.json();
+        console.log("Respuesta: ", data);
+        if (data.outputs && data.outputs["out-0"]) {
+            setResponse({ mensaje: data.outputs["out-0"] });
+        } else {
+            console.error("❌ Respuesta inesperada del chatbot:", data);
+        }
+    } catch (error) {
+        console.log("Error en chatbot: ", error);
+    }
+};

@@ -18,4 +18,6 @@ router.post('/register', [
 
 router.post('/login', authController.login);
 
+router.post('/chat', authController.chatbot);
+
 module.exports = router;

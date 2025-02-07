@@ -1,6 +1,44 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../db/db');
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args)); // Importación dinámica
+require("dotenv").config();
+
+exports.chatbot = async (req, res) => {
+  try {
+    const { user_id, message } = req.body;
+
+    if (!user_id || !message) {
+      return res.status(400).json({ message: "Faltan datos en la petición." })
+    }
+
+    const response = await fetch(
+      "https://api.stack-ai.com/inference/v0/run/9d9c9438-1535-493b-b0cd-448882163957/67a531abda8040b6e33dbc0f",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.STACK_AI_API_KEY}`, // Usar variable de entorno
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id,
+          "in-0": message
+        })
+      }
+    );
+
+    if (!response.ok) {
+      return res.status(500).json({ message: "Error de la API del chatbot." });
+    }
+
+    const data = await response.json();
+    res.json(data); // Devolver al front end
+  } catch {
+    console.error("Error del chatbor: ", error);
+    res.status(500).json({ message: "Error interno del servidor." });
+  }
+}
+
 
 exports.register = (req, res) => {
   const { email, password, iHaveDiabetes, someoneHaveDiabetes } = req.body;
