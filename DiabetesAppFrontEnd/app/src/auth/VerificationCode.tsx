@@ -3,16 +3,17 @@ import TopBar from "../components/TopBar";
 import { globalStyles } from "../../../styles/globalStyles";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useState } from "react";
-import { iniciarSesion, recuperarContrasena } from "../auth/api";
+import { iniciarSesion, recuperarContrasena, verificarCodigo } from "../auth/api";
 import InputComponent from "../components/InputComponent";
 import { ScrollView } from "react-native-gesture-handler";
 
 // Definir el tipo de Props solo con navigation (sin onUserLogin aquí)
 type Props = StackScreenProps<any>;
 
-export default function ForgetPassword({ navigation }: Props) {
+export default function VerificationCode({ navigation }: Props) {
     // Definimos las variables
     const [email, setEmail] = useState("");
+    const [verificationCode, setVerificationCode] = useState("");
 
     // Variable para guardar errores
     const [error, setError] = useState<{
@@ -28,9 +29,10 @@ export default function ForgetPassword({ navigation }: Props) {
         )
 
         //Llamamos al service
-        recuperarContrasena(
+        verificarCodigo(
             navigation,
             email,
+            verificationCode,
             () => console.log("El correo existe"),
             setError
         )
@@ -43,12 +45,11 @@ export default function ForgetPassword({ navigation }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Recuperar cuenta" />
+                    <TopBar title="Codigo de verificacion" />
                     <View style={[globalStyles.middleContainer, { flex: 2 }]}>
                         <View>
                             <Text style={[globalStyles.text, { textAlign: 'center' }]}>
-                                Coloca el correo electronico de tu cuenta
-                                para poder verificarlo, si existe te enviaremos un codigo de verificación.
+                                Enviamos un codigo de verificacion a tu correo electronico.
                             </Text>
                         </View>
                         <View style={{paddingVertical: 15}}>

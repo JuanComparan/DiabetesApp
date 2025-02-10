@@ -13,6 +13,7 @@ import Login from "./home/Login";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import ChatBot from "./auth/ChatBot";
 import ForgetPassword from "./home/ForgetPassword";
+import VerificationCode from "./auth/VerificationCode";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -75,6 +76,11 @@ export default function App() {
           <Stack.Screen
             name='ForgetPassword'
             component={ForgetPassword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='VerificationCode'
+            component={VerificationCode}
             options={{ headerShown: false }}
           />
           <Stack.Screen

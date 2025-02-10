@@ -1,6 +1,6 @@
 export default interface Respuesta {
     respuesta: string;
-}
+};
 
 export const register = async (
     navigation: any,
@@ -28,7 +28,7 @@ export const register = async (
     )
 
     // URL 
-    const url = `https://diabetesapp-z821.onrender.com/register`;
+    const url = `http://10.214.109.152:3000/register`;
 
     try {
         const response = await fetch(url, {
@@ -91,7 +91,7 @@ export const iniciarSesion = async (
     };
 
     // URL
-    const url = `https://diabetesapp-z821.onrender.com/login`;
+    const url = `http://10.214.109.152:3000/login`;
 
     try {
         const response = await fetch(url, {
@@ -135,11 +135,189 @@ export const iniciarSesion = async (
         }
         console.error("Error en la solicitud:", error);
     }
+};
+
+export const recuperarContrasena = async (
+    navigation: any,
+    email: string,
+    onSuccess?: () => void,
+    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string[] } | null>>
+) => {
+    // DTO
+    const recoverPasswordDTO = {
+        email
+    };
+
+    // URL
+    const url = `http://10.214.109.152:3000/recover-password`;
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(recoverPasswordDTO),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+
+            const errorTitle = errorData.message || "Error";
+            const errorMessages = [errorData.message || "Error desconocido"];
+
+            // Pasar el error con la estructura consistente
+            if (setError) {
+                setError({
+                    title: "Error de validación.",
+                    errorMessages: errorMessages,
+                });
+            }
+
+            console.error("Error al recuperar la contrasena:", errorData);
+            return;
+        }
+
+        if (onSuccess) {
+            onSuccess();
+        }
+
+        navigation.navigate("VerificationCode");
+    } catch (error) {
+        // Manejo de errores si la solicitud falla (como problemas de red)
+        if (setError) {
+            setError({
+                title: "Error de conexión",
+                errorMessages: ["No se pudo conectar con el servidor. Intenta más tarde."],
+            });
+        }
+        console.error("Error en la solicitud:", error);
+    }
+};
+
+export const verificarCodigo = async (
+    navigation: any,
+    email: string,
+    verificationCode: string,
+    onSuccess?: () => void,
+    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string[] } | null>>
+) => {
+    // DTO
+    const verifyCodeDTO = {
+        email,
+        verificationCode
+    };
+
+    // URL
+    const url = `http://10.214.109.152:3000/verify-code`;
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(verifyCodeDTO),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+
+            const errorTitle = errorData.message || "Error";
+            const errorMessages = [errorData.message || "Error desconocido"];
+
+            // Pasar el error con la estructura consistente
+            if (setError) {
+                setError({
+                    title: "Error de validación.",
+                    errorMessages: errorMessages,
+                });
+            }
+
+            console.error("Error al verificar el codigo:", errorData);
+            return;
+        }
+
+        if (onSuccess) {
+            onSuccess();
+        }
+
+        navigation.navigate("ChangePassword");
+    } catch (error) {
+        // Manejo de errores si la solicitud falla (como problemas de red)
+        if (setError) {
+            setError({
+                title: "Error de conexión",
+                errorMessages: ["No se pudo conectar con el servidor. Intenta más tarde."],
+            });
+        }
+        console.error("Error en la solicitud:", error);
+    }
+}
+
+export const cambiarContrasena = async (
+    navigation: any,
+    email: string,
+    newPassword: string,
+    onSuccess?: () => void,
+    setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string[] } | null>>
+) => {
+    // DTO
+    const changePasswordDTO = {
+        email,
+        newPassword
+    };
+
+    // URL
+    const url = `http://10.214.109.152:3000/change-password`;
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(changePasswordDTO),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+
+            const errorTitle = errorData.message || "Error";
+            const errorMessages = [errorData.message || "Error desconocido"];
+
+            // Pasar el error con la estructura consistente
+            if (setError) {
+                setError({
+                    title: "Error de validación.",
+                    errorMessages: errorMessages,
+                });
+            }
+
+            console.error("Error al cambiar la contraseña:", errorData);
+            return;
+        }
+
+        if (onSuccess) {
+            onSuccess();
+        }
+
+        navigation.navigate("Login");
+    } catch (error) {
+        // Manejo de errores si la solicitud falla (como problemas de red)
+        if (setError) {
+            setError({
+                title: "Error de conexión",
+                errorMessages: ["No se pudo conectar con el servidor. Intenta más tarde."],
+            });
+        }
+        console.error("Error en la solicitud:", error);
+    }
 }
 
 export const enviarMensajeChatBot = async (
     user_id: string,
-    message: string, 
+    message: string,
     setResponse: any
 ) => {
     const chatBotDTO = {
