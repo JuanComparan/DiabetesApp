@@ -2,7 +2,7 @@ import { KeyboardAvoidingView, Platform, Text, TouchableOpacity, View } from "re
 import TopBar from "../components/TopBar";
 import { globalStyles } from "../../../styles/globalStyles";
 import { useState } from "react";
-import Respuesta, { enviarMensajeChatBot, register } from "../auth/api";
+import { enviarMensajeChatBot, register } from "../auth/api";
 import InputComponent from "../components/InputComponent";
 import { StackScreenProps } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
@@ -12,7 +12,7 @@ type Props = StackScreenProps<any>;
 export default function ChatBot() {
     // Definimos las variables
     const [message, setMessage] = useState("");
-    const [response, setResponse] = useState<Respuesta | null>(null);
+    const [response, setResponse] = useState("");
 
     const handleAction = async () => {
         console.log("Tapeo");
@@ -38,7 +38,7 @@ export default function ChatBot() {
                         <View style={globalStyles.inputContainer}>
                         </View>
                         <View>
-                            <Text>{response?.respuesta}</Text>
+                            <Text></Text>
                         </View>
                     </View>
                     <View style={globalStyles.bottomContainer}>

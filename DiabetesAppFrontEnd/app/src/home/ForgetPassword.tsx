@@ -8,12 +8,11 @@ import InputComponent from "../components/InputComponent";
 import { ScrollView } from "react-native-gesture-handler";
 
 // Definir el tipo de Props solo con navigation (sin onUserLogin aquí)
-type Props = StackScreenProps<any, 'Login'>;
+type Props = StackScreenProps<any>;
 
-export default function Login({ navigation }: Props) {
+export default function ForgetPassword({ navigation }: Props) {
     // Definimos las variables
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
     // Variable para guardar errores
     const [error, setError] = useState<{
@@ -26,15 +25,13 @@ export default function Login({ navigation }: Props) {
 
         console.log(
             "email: ", email,
-            "password: ", password,
         )
 
         //Llamamos al service
-        iniciarSesion(
+        verificarCorreo(
             navigation,
             email,
-            password,
-            () => console.log("Usuario logueado exitosamente"),
+            () => console.log("El correo existe"),
             setError
         )
     }
@@ -46,14 +43,18 @@ export default function Login({ navigation }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Iniciar Sesión" />
+                    <TopBar title="Recuperar cuenta" />
                     <View style={[globalStyles.middleContainer, { flex: 2 }]}>
-                        <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
-                        <InputComponent text="Contraseña" value={password} variable={setPassword} securityPassword />
+                        <View>
+                            <Text style={[globalStyles.text, { textAlign: 'center' }]}>
+                                Coloca el correo electronico de tu cuenta
+                                para poder verificarlo, si existe te enviaremos un codigo de verificación.
+                            </Text>
+                        </View>
+                        <View style={{paddingVertical: 15}}>
+                            <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
+                        </View>
                     </View>
-                    <TouchableOpacity style={{alignItems: 'center'}} onPress={() => navigation.navigate("ForgetPassword")}>
-                        <Text style={globalStyles.inputText}>¿Olvidaste tu contraseña?</Text>
-                    </TouchableOpacity>
                     <View style={globalStyles.bottomContainer}>
                         {error && (
                             <View>
@@ -71,7 +72,7 @@ export default function Login({ navigation }: Props) {
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>
-                                    <Text style={globalStyles.buttonText}>INGRESAR</Text>
+                                    <Text style={globalStyles.buttonText}>VERIFICAR</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>

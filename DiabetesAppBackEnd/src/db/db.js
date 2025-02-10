@@ -9,6 +9,6 @@ const db = new sqlite3.Database('./users.db', (err) => {
 });
 
 // Crear la tabla de usuarios
-db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT UNIQUE, password TEXT, haveDiabetes INTEGER, iHaveDiabetes INTEGER, someoneHaveDiabetes INTEGER)');
+db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT UNIQUE, password TEXT, haveDiabetes INTEGER, iHaveDiabetes INTEGER, someoneHaveDiabetes INTEGER, verificationCode TEXT)');
 
 module.exports = db;

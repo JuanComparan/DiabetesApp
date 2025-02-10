@@ -20,4 +20,10 @@ router.post('/login', authController.login);
 
 router.post('/chat', authController.chatbot);
 
+router.post('/recover-password', authController.recoverPassword);
+
+router.post('/verify-code', authController.verifyCode);
+
+router.post('/change-password', authController.changePassword);
+
 module.exports = router;

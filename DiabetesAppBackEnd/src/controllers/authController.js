@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const db = require('../db/db');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args)); // Importación dinámica
 require("dotenv").config();
@@ -39,7 +41,6 @@ exports.chatbot = async (req, res) => {
   }
 }
 
-
 exports.register = (req, res) => {
   const { email, password, iHaveDiabetes, someoneHaveDiabetes } = req.body;
 
@@ -78,7 +79,7 @@ exports.login = (req, res) => {
 
   db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
     if (err) {
-      return res.status(400).json({ message: 'Hubo un error al realizar la consulta.' });
+      return res.status(500).json({ message: 'Hubo un error al realizar la consulta.' });
     }
     if (!user) {
       return res.status(404).json({ message: 'El correo electronico no existe.' });
@@ -92,6 +93,114 @@ exports.login = (req, res) => {
       const token = jwt.sign({ id: user.id, email: user.email }, 'secretKey', { expiresIn: '1h' });
       console.log("Login exitoso, email: ", email);
       res.json({ message: 'Login exitoso', token });
+    });
+  });
+};
+
+// Funcion para enviar codigo de verificación
+const sendVerificationEmail = (email, verificationCode) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  });
+
+  const mailOptions = {
+    from: '"DiabetesAppSoporteTecnico" <process.env.EMAIL_USER>',
+    to: email,
+    subject: 'Código de verificación para recuperar contraseña',
+    text: `Tu código de verificación es: ${verificationCode}`
+  };
+
+  return transporter.sendMail(mailOptions);
+};
+
+//Paso 1: Verficiar el email y generar un codigo de verificación.
+exports.recoverPassword = (req, res) => {
+  const { email } = req.body
+
+  if (!email) {
+    return res.status(400).json({ message: "El correo electronico es obligatorio." });
+  }
+
+  db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
+    if (err) {
+      return res.status(500).json({ message: 'Hubo un error al realizar la consulta.' });
+    }
+    if (!user) {
+      return res.status(404).json({ message: 'El correo electronico no existe.' });
+    }
+
+    //Generar un codigo de verificacion
+    const verificationCode = crypto.randomBytes(3).toString('hex'); // 6 caracteres al azar
+
+    //Enviar el código al correo
+    sendVerificationEmail(email, verificationCode)
+      .then(() => {
+        const stmt = db.prepare('UPDATE users SET verificationCode = ? where email = ?');
+        stmt.run(verificationCode, email, function (err) {
+          if (err) {
+            return res.status(500).json({ message: 'Error al guardar el código de verificación.' });
+          }
+          res.json({ message: "Te hemos enviado un código de verificación a tu correo." });
+        });
+      })
+      .catch(() => {
+        res.status(500).json({ message: "Error al enviar el correo electrónico." });
+      });
+  });
+};
+
+//Paso 2: Verificar el codigo recibido
+exports.verifyCode = (req, res) => {
+  const { email, verificationCode } = req.body;
+
+  if (!verificationCode) {
+    return res.status(400).json({ message: "El código de verificación es obligatorio." });
+  }
+
+  db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
+    if (err) {
+      return res.status(500).json({ message: "Error al verificar el correo electronico." });
+    }
+    if (!user) {
+      return res.status(500).json({ message: "El correo electronico no existe." });
+    }
+
+    if (user.verificationCode === verificationCode) {
+      res.json({ message: "Código de verifcación correcto. Ahora puedes cambiar tu contraseña." });
+    } else {
+      console.log("Codigo de verificacion almacenado: ", user.verificationCode);
+      console.log("Codigo de verificacion recibido: ", verificationCode);
+      res.status(400).json({ message: "Código de verificación incorrecto." });
+    }
+  });
+};
+
+//Paso 3: Cambiar la contraseña
+exports.changePassword = (req, res) => {
+  const { email, newPassword } = req.body;
+
+  if (!newPassword) {
+    return res.status(500).json({ message: "La nueva contraseña es obligatoria." });
+  }
+
+  bcrypt.hash(newPassword, 10, (err, hashedPassword) => {
+    if (err) {
+      return res.status(500).json({ message: "Error al encriptar la nueva contraseña." });
+    }
+
+    //Actualizar la contraseña en la base de datos
+    const stmt = db.prepare('UPDATE users SET password = ?, verificationCode = NULL WHERE email = ?');
+    stmt.run(hashedPassword, email, function (err) {
+      if (err) {
+        return res.status(500).json({message: "Error al actualizar la contraseña."});
+      }
+      res.json({message: "Contraseña cambiada con éxito!"});
     });
   });
 };

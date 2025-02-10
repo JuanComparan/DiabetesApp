@@ -12,6 +12,7 @@ import Registro from "./home/Registro";
 import Login from "./home/Login";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import ChatBot from "./auth/ChatBot";
+import ForgetPassword from "./home/ForgetPassword";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -24,7 +25,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName='ChatBot'
+          initialRouteName='Welcome'
           screenOptions={{
             headerShown: false,
             gestureEnabled: true,
@@ -69,6 +70,11 @@ export default function App() {
           <Stack.Screen
             name='Login'
             component={Login}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='ForgetPassword'
+            component={ForgetPassword}
             options={{ headerShown: false }}
           />
           <Stack.Screen
