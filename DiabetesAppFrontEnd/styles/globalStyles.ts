@@ -85,6 +85,11 @@ export const globalStyles = StyleSheet.create({
         alignItems: 'center',
         gap: 15,
     },
+    iconPasswordArea: {
+        width: width * 0.1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     // Textos
     title: {
         fontSize: 45,

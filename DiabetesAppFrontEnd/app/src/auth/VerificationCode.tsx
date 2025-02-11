@@ -1,19 +1,24 @@
-import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
-import TopBar from "../components/TopBar";
-import { globalStyles } from "../../../styles/globalStyles";
-import { StackScreenProps } from "@react-navigation/stack";
 import { useState } from "react";
-import { iniciarSesion } from "../auth/api";
-import InputComponent from "../components/InputComponent";
+import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RouteProp } from "@react-navigation/native";
+import { verificarCodigo } from "../auth/api";
 import { ScrollView } from "react-native-gesture-handler";
+import { globalStyles } from "../../../styles/globalStyles";
+import { RootStackParamList } from "../RootStackParamList";
+import InputComponent from "../components/InputComponent";
+import TopBar from "../components/TopBar";
 
-// Definir el tipo de Props solo con navigation (sin onUserLogin aquí)
-type Props = StackScreenProps<any, 'Login'>;
+interface Props {
+    navigation: StackNavigationProp<any>;
+    route: RouteProp<RootStackParamList, "VerificationCode">;
+}
 
-export default function Login({ navigation }: Props) {
+export default function VerificationCode({ navigation, route }: Props) {
     // Definimos las variables
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [verificationCode, setVerificationCode] = useState("");
+
+    const email = route?.params?.email;
 
     // Variable para guardar errores
     const [error, setError] = useState<{
@@ -26,15 +31,15 @@ export default function Login({ navigation }: Props) {
 
         console.log(
             "email: ", email,
-            "password: ", password,
+            "codigo: ", verificationCode
         )
 
         //Llamamos al service
-        iniciarSesion(
+        verificarCodigo(
             navigation,
             email,
-            password,
-            () => console.log("Usuario logueado exitosamente"),
+            verificationCode,
+            () => console.log("El codigo es correcto."),
             setError
         )
     }
@@ -46,14 +51,17 @@ export default function Login({ navigation }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Iniciar Sesión" />
+                    <TopBar title="Codigo de verificacion" />
                     <View style={[globalStyles.middleContainer, { flex: 2 }]}>
-                        <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
-                        <InputComponent text="Contraseña" value={password} variable={setPassword} securityPassword />
+                        <View>
+                            <Text style={[globalStyles.text, { textAlign: 'center' }]}>
+                                Enviamos un codigo de verificacion a tu correo electronico.
+                            </Text>
+                        </View>
+                        <View style={{ paddingVertical: 15 }}>
+                            <InputComponent text="Código de verificación" value={verificationCode} variable={setVerificationCode} />
+                        </View>
                     </View>
-                    <TouchableOpacity style={{alignItems: 'center'}} onPress={() => navigation.navigate("ForgetPassword")}>
-                        <Text style={globalStyles.inputText}>¿Olvidaste tu contraseña?</Text>
-                    </TouchableOpacity>
                     <View style={globalStyles.bottomContainer}>
                         {error && (
                             <View>
@@ -71,7 +79,7 @@ export default function Login({ navigation }: Props) {
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>
-                                    <Text style={globalStyles.buttonText}>INGRESAR</Text>
+                                    <Text style={[globalStyles.buttonText, {fontSize: 27}]}>VERIFICAR CODIGO</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
