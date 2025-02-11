@@ -184,9 +184,12 @@ exports.verifyCode = (req, res) => {
 //Paso 3: Cambiar la contraseña
 exports.changePassword = (req, res) => {
   const { email, newPassword } = req.body;
-
   if (!newPassword) {
     return res.status(500).json({ message: "La nueva contraseña es obligatoria." });
+  }
+
+  if (newPassword.length < 6) {
+    return res.status(400).json({message: "La contraseña nueva debe tener al menos 6 caracteres."})
   }
 
   bcrypt.hash(newPassword, 10, (err, hashedPassword) => {

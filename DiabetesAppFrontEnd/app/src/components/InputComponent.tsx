@@ -1,4 +1,4 @@
-import { TextInput, View, Text, StyleSheet, Dimensions } from "react-native";
+import { TextInput, View, Text, Dimensions } from "react-native";
 import { globalStyles } from "../../../styles/globalStyles";
 import { useState } from "react";
 import { GestureHandlerRootView, TouchableOpacity } from "react-native-gesture-handler";
@@ -10,6 +10,8 @@ interface Props {
     variable: (text: string) => void;
     securityPassword?: boolean;
 }
+
+const { width } = Dimensions.get('window');
 
 export default function InputComponent({ text, value, variable, securityPassword }: Props) {
     // Variable para definir el ver/ocultar contraseña
@@ -50,10 +52,4 @@ export default function InputComponent({ text, value, variable, securityPassword
             )}
         </>
     )
-}
-
-const { width } = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-    
-})
+};

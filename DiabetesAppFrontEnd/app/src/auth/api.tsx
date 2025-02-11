@@ -182,7 +182,7 @@ export const recuperarContrasena = async (
             onSuccess();
         }
 
-        navigation.navigate("VerificationCode");
+        navigation.navigate("VerificationCode", { email: email });
     } catch (error) {
         // Manejo de errores si la solicitud falla (como problemas de red)
         if (setError) {
@@ -197,7 +197,7 @@ export const recuperarContrasena = async (
 
 export const verificarCodigo = async (
     navigation: any,
-    email: string,
+    email: string | undefined,
     verificationCode: string,
     onSuccess?: () => void,
     setError?: React.Dispatch<React.SetStateAction<{ title: string; errorMessages: string[] } | null>>
@@ -242,7 +242,7 @@ export const verificarCodigo = async (
             onSuccess();
         }
 
-        navigation.navigate("ChangePassword");
+        navigation.navigate("ChangePassword", { email: email });
     } catch (error) {
         // Manejo de errores si la solicitud falla (como problemas de red)
         if (setError) {

@@ -3,11 +3,10 @@ import TopBar from "../components/TopBar";
 import { globalStyles } from "../../../styles/globalStyles";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useState } from "react";
-import { iniciarSesion, recuperarContrasena } from "../auth/api";
+import { recuperarContrasena } from "../auth/api";
 import InputComponent from "../components/InputComponent";
 import { ScrollView } from "react-native-gesture-handler";
 
-// Definir el tipo de Props solo con navigation (sin onUserLogin aquí)
 type Props = StackScreenProps<any>;
 
 export default function ForgetPassword({ navigation }: Props) {
@@ -72,7 +71,7 @@ export default function ForgetPassword({ navigation }: Props) {
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>
-                                    <Text style={globalStyles.buttonText}>VERIFICAR</Text>
+                                    <Text style={globalStyles.buttonText}>ENVIAR</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>

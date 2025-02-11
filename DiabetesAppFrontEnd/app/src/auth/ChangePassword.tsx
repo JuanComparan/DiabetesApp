@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RouteProp } from "@react-navigation/native";
-import { verificarCodigo } from "../auth/api";
+import { cambiarContrasena } from "../auth/api";
 import { ScrollView } from "react-native-gesture-handler";
 import { globalStyles } from "../../../styles/globalStyles";
 import { RootStackParamList } from "../RootStackParamList";
@@ -11,14 +11,14 @@ import TopBar from "../components/TopBar";
 
 interface Props {
     navigation: StackNavigationProp<any>;
-    route: RouteProp<RootStackParamList, "VerificationCode">;
+    route: RouteProp<RootStackParamList, "ChangePassword">;
 }
 
-export default function VerificationCode({ navigation, route }: Props) {
+export default function ChangePassword({ navigation, route }: Props) {
     // Definimos las variables
-    const [verificationCode, setVerificationCode] = useState("");
+    const [newPassword, setNewPassword] = useState("");
 
-    const email = route?.params?.email;
+    const { email } = route.params || {};
 
     // Variable para guardar errores
     const [error, setError] = useState<{
@@ -31,15 +31,15 @@ export default function VerificationCode({ navigation, route }: Props) {
 
         console.log(
             "email: ", email,
-            "codigo: ", verificationCode
+            "newpassword: ", newPassword
         )
 
         //Llamamos al service
-        verificarCodigo(
+        cambiarContrasena(
             navigation,
             email,
-            verificationCode,
-            () => console.log("El codigo es correcto."),
+            newPassword,
+            () => console.log("Contraseña cambiada exitosamente!"),
             setError
         )
     }
@@ -51,15 +51,15 @@ export default function VerificationCode({ navigation, route }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Codigo de verificacion" />
+                    <TopBar title="Cambiar contraseña" />
                     <View style={[globalStyles.middleContainer, { flex: 2 }]}>
                         <View>
                             <Text style={[globalStyles.text, { textAlign: 'center' }]}>
-                                Enviamos un codigo de verificacion a tu correo electronico.
+                                Casi listo, ingresa una contraseña nueva.
                             </Text>
                         </View>
                         <View style={{ paddingVertical: 15 }}>
-                            <InputComponent text="Código de verificación" value={verificationCode} variable={setVerificationCode} />
+                            <InputComponent text="Contraseña nueva" value={newPassword} variable={setNewPassword} securityPassword/>
                         </View>
                     </View>
                     <View style={globalStyles.bottomContainer}>
@@ -79,7 +79,7 @@ export default function VerificationCode({ navigation, route }: Props) {
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>
-                                    <Text style={[globalStyles.buttonText, {fontSize: 27}]}>VERIFICAR CODIGO</Text>
+                                    <Text style={[globalStyles.buttonText, {fontSize: 22}]}>CAMBIAR CONTRASEÑA</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
