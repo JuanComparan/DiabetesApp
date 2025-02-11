@@ -79,7 +79,7 @@ export default function ChangePassword({ navigation, route }: Props) {
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>
-                                    <Text style={[globalStyles.buttonText, {fontSize: 22}]}>CAMBIAR CONTRASEÑA</Text>
+                                    <Text style={[globalStyles.buttonText, {fontSize: 16}]}>CAMBIAR CONTRASEÑA</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
