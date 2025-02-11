@@ -28,7 +28,7 @@ export const register = async (
     )
 
     // URL 
-    const url = `http://10.214.109.152:3000/register`;
+    const url = `https://diabetesapp-z821.onrender.com/register`;
 
     try {
         const response = await fetch(url, {
@@ -91,7 +91,7 @@ export const iniciarSesion = async (
     };
 
     // URL
-    const url = `http://10.214.109.152:3000/login`;
+    const url = `https://diabetesapp-z821.onrender.com/login`;
 
     try {
         const response = await fetch(url, {
@@ -149,7 +149,7 @@ export const recuperarContrasena = async (
     };
 
     // URL
-    const url = `http://10.214.109.152:3000/recover-password`;
+    const url = `https://diabetesapp-z821.onrender.com/recover-password`;
 
     try {
         const response = await fetch(url, {
@@ -209,7 +209,7 @@ export const verificarCodigo = async (
     };
 
     // URL
-    const url = `http://10.214.109.152:3000/verify-code`;
+    const url = `https://diabetesapp-z821.onrender.com/verify-code`;
 
     try {
         const response = await fetch(url, {
@@ -269,7 +269,7 @@ export const cambiarContrasena = async (
     };
 
     // URL
-    const url = `http://10.214.109.152:3000/change-password`;
+    const url = `https://diabetesapp-z821.onrender.com/change-password`;
 
     try {
         const response = await fetch(url, {
@@ -326,7 +326,7 @@ export const enviarMensajeChatBot = async (
     }
 
     // URL
-    const url = `http://10.214.109.152:3000/chat`;
+    const url = `https://diabetesapp-z821.onrender.com/chat`;
 
     try {
         const response = await fetch(url, {
