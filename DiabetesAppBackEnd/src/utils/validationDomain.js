@@ -1,4 +1,4 @@
-const allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com'];
+const allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'alumnos.udg.mx'];
 
 function isValidDomain(email) {
   const domain = email.split('@')[1];
