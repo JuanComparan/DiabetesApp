@@ -2,6 +2,8 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const { width, height } = Dimensions.get('window');
 
+// Estilos globales usados en la aplicación
+
 export const globalStyles = StyleSheet.create({
     // Contenedores
     mainContainer: {
@@ -13,31 +15,31 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#58BBF6',
     },
-    middleContainer: {
+    middleScreen: {
         flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    bottomContainer: {
+    bottomScreen: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    textContainer: {
+    customTextContainer: {
         margin: 2,
     },
-    inputContainer: {
+    customInputContainer: {
         marginVertical: 20,
         width: width * 0.7,
     },
-    input: {
+    customInput: {
         alignSelf: "center",
         width: width * 0.6,
         borderBottomWidth: 1,
         borderColor: "#000000",
         fontSize: 18,
     },
-    buttonContainer: {
+    customButtonContainer: {
         height: height * 0.08,
         width: width * 0.7,
         justifyContent: 'center',
@@ -78,7 +80,7 @@ export const globalStyles = StyleSheet.create({
         margin: 5,
         alignSelf: 'center',
     },
-    middle: {
+    middleContainer: {
         flex: 1,
         flexDirection: "row",
         justifyContent: 'center',
@@ -174,8 +176,8 @@ export const globalStyles = StyleSheet.create({
         resizeMode: 'stretch',
     },
     iconImage: {
-        width: '50%', // Ancho de la imagen
-        height: '50%', // Altura de la imagen
+        width: '50%',
+        height: '50%',
         resizeMode: 'contain'
     },
 })

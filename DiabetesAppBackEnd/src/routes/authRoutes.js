@@ -14,6 +14,4 @@ router.post('/verify-code', validateVerifyCode, authController.verifyCode);
 
 router.post('/change-password', validateNewPassword, authController.changePassword);
 
-router.post('/chat', authController.chatbot);
-
 module.exports = router;

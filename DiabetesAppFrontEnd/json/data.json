@@ -105,7 +105,7 @@
         },
         {
             "id" : 3,
-            "title" : "Vegetales de hoja verde",
+            "title" : "Verduras de hoja verde",
             "text" : "proporcionan una buena cantidad de fibra, proteinas, vitaminas y minerales.",
             "image" : "tablaDieta3.png"
         },
@@ -117,7 +117,7 @@
         },
         {
             "id" : 5,
-            "title" : "Citricos",
+            "title" : "Cítricos",
             "text" : "contienen cantidades abundantes de vitamina C y fibra.",
             "image" : "tablaDieta5.png"
         },
@@ -129,7 +129,7 @@
         },
         {
             "id" : 7,
-            "title" : "Batatas",
+            "title" : "Papas",
             "text" : "contienen más fibra saludable, antioxidantes y vitamina A que las papas blancas.",
             "image" : "tablaDieta7.png"
         },
@@ -141,7 +141,7 @@
         },
         {
             "id" : 9,
-            "title" : "Frutos del bosque",
+            "title" : "Frutos rojos",
             "text" : "una excelente fuente de antioxidantes, fibra y vitaminas.",
             "image" : "tablaDieta9.png"
         },

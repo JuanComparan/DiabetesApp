@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, View, Image, Text } from "react-native";
-import data from './../../../json/data.json';
+import data from '../../../json/data.json';
 import images from "../../../assets/images/images";
 
 interface DescriptionItem {
@@ -10,7 +10,7 @@ interface DescriptionItem {
     image: string;
 }
 
-export default function TablaDieta() {
+export default function DietTable() {
     const [description, setDescription] = useState<DescriptionItem[]>([]);
 
     // Carga inicial de la descripción

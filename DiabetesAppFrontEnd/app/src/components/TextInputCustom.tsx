@@ -13,27 +13,27 @@ interface Props {
 
 const { width } = Dimensions.get('window');
 
-export default function InputComponent({ text, value, variable, securityPassword }: Props) {
+export default function TextInputCustom({ text, value, variable, securityPassword }: Props) {
     // Variable para definir el ver/ocultar contraseña
     const [showPassword, setShowPassword] = useState(false);
 
     return (
         <>
             {!securityPassword ? (
-                <View style={globalStyles.inputContainer}>
+                <View style={globalStyles.customInputContainer}>
                     <Text style={globalStyles.inputText}>{text}</Text>
                     <TextInput
-                        style={globalStyles.input}
+                        style={globalStyles.customInput}
                         value={value}
                         onChangeText={variable}
                     />
                 </View>
             ) : (
-                <View style={[globalStyles.inputContainer, { width: width * 0.6 }]}>
+                <View style={[globalStyles.customInputContainer, { width: width * 0.6 }]}>
                     <Text style={[globalStyles.inputText, { paddingLeft: 0 }]}>{text}</Text>
                     <GestureHandlerRootView style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <TextInput
-                            style={[globalStyles.input, { width: width * 0.6 }]}
+                            style={[globalStyles.customInput, { width: width * 0.6 }]}
                             value={value}
                             onChangeText={variable}
                             secureTextEntry={!showPassword}

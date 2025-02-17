@@ -1,7 +1,7 @@
 import { Text, View, ScrollView, Image } from "react-native";
 import { useEffect, useState } from "react";
 
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import data from "./../../../json/data.json";
 import images from "../../../assets/images/images";
 import { globalStyles } from "../../../styles/globalStyles";
@@ -30,11 +30,11 @@ export default function Tratamientos() {
 
   return (
     <View style={globalStyles.mainContainer}>
-      <TopBar title="Tratamientos" />
-      <View style={globalStyles.middleContainer}>
-        <ScrollView>
+      <Header title="Tratamientos" />
+      <View style={globalStyles.middleScreen}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {description.map((description) => (
-            <View key={description.id} style={globalStyles.textContainer}>
+            <View key={description.id} style={globalStyles.customTextContainer}>
               {description.title && (
                 <Text style={globalStyles.textTitle}>{description.title}</Text>
               )}

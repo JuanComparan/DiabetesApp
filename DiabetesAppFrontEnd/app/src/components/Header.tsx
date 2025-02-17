@@ -5,7 +5,7 @@ interface topbarPropierties {
     title: string
 }
 
-export default function TopBar({ title }: topbarPropierties) {
+export default function Header({ title }: topbarPropierties) {
     return (
         <View style={globalStyles.topScreen}>
             <View style={globalStyles.titleTextContainer}>

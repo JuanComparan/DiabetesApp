@@ -14,7 +14,6 @@ import Tratamientos from "./auth/Tratamientos";
 import Diagnostico from "./auth/Diagnostico";
 import Registro from "./home/Registro";
 import Login from "./home/Login";
-import ChatBot from "./auth/ChatBot";
 import ForgetPassword from "./home/ForgetPassword";
 import VerificationCode from './auth/VerificationCode';
 import ChangePassword from "./auth/ChangePassword";
@@ -31,7 +30,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName='ChangePassword'
+          initialRouteName='Welcome'
           screenOptions={{
             headerShown: false,
             gestureEnabled: true,
@@ -91,11 +90,6 @@ export default function App() {
           <Stack.Screen
             name='ChangePassword'
             component={ChangePassword}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name='ChatBot'
-            component={ChatBot}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

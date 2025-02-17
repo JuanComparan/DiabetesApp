@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import { globalStyles } from "../../../styles/globalStyles";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useState } from "react";
 import { recuperarContrasena } from "../auth/api";
-import InputComponent from "../components/InputComponent";
+import TextInputCustom from "../components/TextInputCustom";
 import { ScrollView } from "react-native-gesture-handler";
 
 type Props = StackScreenProps<any>;
@@ -42,8 +42,8 @@ export default function ForgetPassword({ navigation }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Recuperar cuenta" />
-                    <View style={[globalStyles.middleContainer, { flex: 2 }]}>
+                    <Header title="Recuperar cuenta" />
+                    <View style={[globalStyles.middleScreen, { flex: 2 }]}>
                         <View>
                             <Text style={[globalStyles.text, { textAlign: 'center' }]}>
                                 Coloca el correo electronico de tu cuenta
@@ -51,10 +51,10 @@ export default function ForgetPassword({ navigation }: Props) {
                             </Text>
                         </View>
                         <View style={{paddingVertical: 15}}>
-                            <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
+                            <TextInputCustom text="Correo Electronico" value={email} variable={setEmail} />
                         </View>
                     </View>
-                    <View style={globalStyles.bottomContainer}>
+                    <View style={globalStyles.bottomScreen}>
                         {error && (
                             <View>
                                 <Text style={globalStyles.error}>
@@ -67,7 +67,7 @@ export default function ForgetPassword({ navigation }: Props) {
                         )}
                         <View>
                             <TouchableOpacity
-                                style={globalStyles.buttonContainer}
+                                style={globalStyles.customButtonContainer}
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>
