@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import { globalStyles } from "../../../styles/globalStyles";
 
 interface Props {
@@ -12,10 +12,10 @@ interface Props {
 export default function Menu({ navigation }: Props) {
     return (
         <View style={globalStyles.mainContainer}>
-            <TopBar title="La diabetes" />
-            <View style={globalStyles.middleContainer}>
+            <Header title="La diabetes" />
+            <View style={globalStyles.middleScreen}>
                 <View style={globalStyles.descriptionContainer}>
-                    <View style={globalStyles.middle}>
+                    <View style={globalStyles.middleContainer}>
                         <TouchableOpacity style={globalStyles.BoxContainer} onPress={() => navigation.navigate('QueEs')}>
                             <Text style={globalStyles.descriptionText}>¿Que es?</Text>
                             <Image
@@ -31,7 +31,7 @@ export default function Menu({ navigation }: Props) {
                             />
                         </ TouchableOpacity>
                     </View>
-                    <View style={globalStyles.middle}>
+                    <View style={globalStyles.middleContainer}>
                         <TouchableOpacity style={globalStyles.BoxContainer} onPress={() => navigation.navigate('Dieta')}>
                             <Text style={globalStyles.descriptionText}>Dietas</Text>
                             <Image

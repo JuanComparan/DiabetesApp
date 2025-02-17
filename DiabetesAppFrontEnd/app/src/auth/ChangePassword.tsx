@@ -6,8 +6,8 @@ import { cambiarContrasena } from "../auth/api";
 import { ScrollView } from "react-native-gesture-handler";
 import { globalStyles } from "../../../styles/globalStyles";
 import { RootStackParamList } from "../RootStackParamList";
-import InputComponent from "../components/InputComponent";
-import TopBar from "../components/TopBar";
+import TextInputCustom from "../components/TextInputCustom";
+import Header from "../components/Header";
 
 interface Props {
     navigation: StackNavigationProp<any>;
@@ -51,18 +51,18 @@ export default function ChangePassword({ navigation, route }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Cambiar contraseña" />
-                    <View style={[globalStyles.middleContainer, { flex: 2 }]}>
+                    <Header title="Cambiar contraseña" />
+                    <View style={[globalStyles.middleScreen, { flex: 2 }]}>
                         <View>
                             <Text style={[globalStyles.text, { textAlign: 'center' }]}>
                                 Casi listo, ingresa una contraseña nueva.
                             </Text>
                         </View>
                         <View style={{ paddingVertical: 15 }}>
-                            <InputComponent text="Contraseña nueva" value={newPassword} variable={setNewPassword} securityPassword/>
+                            <TextInputCustom text="Contraseña nueva" value={newPassword} variable={setNewPassword} securityPassword/>
                         </View>
                     </View>
-                    <View style={globalStyles.bottomContainer}>
+                    <View style={globalStyles.bottomScreen}>
                         {error && (
                             <View>
                                 <Text style={globalStyles.error}>
@@ -75,7 +75,7 @@ export default function ChangePassword({ navigation, route }: Props) {
                         )}
                         <View>
                             <TouchableOpacity
-                                style={globalStyles.buttonContainer}
+                                style={globalStyles.customButtonContainer}
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>

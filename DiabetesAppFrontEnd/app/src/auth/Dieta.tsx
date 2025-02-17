@@ -2,9 +2,9 @@ import { Text, View, ScrollView, Image } from "react-native";
 import data from './../../../json/data.json';
 import images from "../../../assets/images/images";
 import { useEffect, useState } from "react";
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import { globalStyles } from "../../../styles/globalStyles";
-import TablaDieta from "../components/TablaDieta";
+import DietTable from "../components/DietTable";
 
 interface DescriptionItem {
     id: number;
@@ -26,11 +26,11 @@ export default function Dieta() {
 
     return (
         <View style={globalStyles.mainContainer}>
-            <TopBar title="Dietas" />
-            <View style={globalStyles.middleContainer}>
-                <ScrollView>
+            <Header title="Dietas" />
+            <View style={globalStyles.middleScreen}>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     {description.map((description) => (
-                        <View key={description.id} style={globalStyles.textContainer}>
+                        <View key={description.id} style={globalStyles.customTextContainer}>
                             {description.title && (
                                 <Text style={globalStyles.textTitle}>{description.title}</Text>
                             )}
@@ -46,7 +46,7 @@ export default function Dieta() {
                             )}
                         </View>
                     ))}
-                    <TablaDieta />
+                    <DietTable />
                 </ScrollView>
             </View>
         </View>

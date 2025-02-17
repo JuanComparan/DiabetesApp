@@ -1,7 +1,7 @@
 import { Image, View, ScrollView, Text } from "react-native";
 import data from './../../../json/data.json';
 import images from "../../../assets/images/images";
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { globalStyles } from "../../../styles/globalStyles";
 
@@ -24,17 +24,17 @@ export default function QueEs() {
 
     return (
         <View style={globalStyles.mainContainer}>
-            <TopBar title="¿Qué es la diabetes?" />
-            <View style={globalStyles.middleContainer}>
-                <ScrollView>
-                    <View style={globalStyles.textContainer}>
+            <Header title="¿Qué es la diabetes?" />
+            <View style={globalStyles.middleScreen}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={globalStyles.customTextContainer}>
                         <Image
                             source={require("../../../assets/images/diabetesQueEs1.png")}
                             style={globalStyles.image}
                         />
                     </View>
                     {description.map((description) => (
-                        <View key={description.id} style={globalStyles.textContainer}>
+                        <View key={description.id} style={globalStyles.customTextContainer}>
                             {description.title && (
                                 <Text style={globalStyles.textTitle}>{description.title}</Text>
                             )}

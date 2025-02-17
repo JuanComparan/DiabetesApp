@@ -1,9 +1,9 @@
 import { KeyboardAvoidingView, Platform, Text, TouchableOpacity, View } from "react-native";
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import { globalStyles } from "../../../styles/globalStyles";
 import { useState } from "react";
 import { register } from "../auth/api";
-import InputComponent from "../components/InputComponent";
+import TextInputCustom from "../components/TextInputCustom";
 import OptionInputComponent from "../components/OptionInputComponent";
 import { StackScreenProps } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
@@ -52,11 +52,11 @@ export default function Registro({ navigation }: Props) {
         >
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={globalStyles.mainContainer}>
-                    <TopBar title="Registro" />
-                    <View style={[globalStyles.middleContainer, { flex: 1 }]}>
-                        <InputComponent text="Correo Electronico" value={email} variable={setEmail} />
-                        <InputComponent text="Contraseña" value={password} variable={setPassword} securityPassword />
-                        <View style={globalStyles.inputContainer}>
+                    <Header title="Registro" />
+                    <View style={[globalStyles.middleScreen, { flex: 1 }]}>
+                        <TextInputCustom text="Correo Electronico" value={email} variable={setEmail} />
+                        <TextInputCustom text="Contraseña" value={password} variable={setPassword} securityPassword />
+                        <View style={globalStyles.customInputContainer}>
                             <Text style={globalStyles.inputText}>¿Tienes Diabetes?</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                                 <OptionInputComponent
@@ -71,7 +71,7 @@ export default function Registro({ navigation }: Props) {
                                 />
                             </View>
                         </View>
-                        <View style={globalStyles.inputContainer}>
+                        <View style={globalStyles.customInputContainer}>
                             <Text style={globalStyles.inputText}>¿Conoces a alguien con diabetes?</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                                 <OptionInputComponent
@@ -87,7 +87,7 @@ export default function Registro({ navigation }: Props) {
                             </View>
                         </View>
                     </View>
-                    <View style={globalStyles.bottomContainer}>
+                    <View style={globalStyles.bottomScreen}>
                         {error && (
                             <View>
                                 <Text style={globalStyles.error}>
@@ -100,7 +100,7 @@ export default function Registro({ navigation }: Props) {
                         )}
                         <View>
                             <TouchableOpacity
-                                style={globalStyles.buttonContainer}
+                                style={globalStyles.customButtonContainer}
                                 onPress={handleAction}
                             >
                                 <View style={globalStyles.textButtonContainer}>

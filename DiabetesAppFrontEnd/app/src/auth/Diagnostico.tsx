@@ -1,7 +1,7 @@
 import { Image, View, ScrollView, Text } from "react-native";
 import data from './../../../json/data.json';
 import images from "../../../assets/images/images";
-import TopBar from "../components/TopBar";
+import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { globalStyles } from "../../../styles/globalStyles";
 
@@ -25,11 +25,11 @@ export default function Diagnostico() {
 
     return (
         <View style={globalStyles.mainContainer}>
-            <TopBar title="Diagnostico" />
-            <View style={globalStyles.middleContainer}>
-                <ScrollView>
+            <Header title="Diagnostico" />
+            <View style={globalStyles.middleScreen}>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     {description.map((description) => (
-                        <View key={description.id} style={globalStyles.textContainer}>
+                        <View key={description.id} style={globalStyles.customTextContainer}>
                             {description.title && (
                                 <Text style={globalStyles.textTitle}>{description.title}</Text>
                             )}

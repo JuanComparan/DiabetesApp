@@ -45,7 +45,7 @@ export default function Welcome({ navigation }: Props) {
                     <Text style={globalStyles.title}>Bienvenido</Text>
                 </View>
             </SafeAreaView>
-            <View style={[globalStyles.middleContainer, {flex: 2}]}>
+            <View style={[globalStyles.middleScreen, {flex: 2}]}>
                 {itemToShow ? (
                     <View key={itemToShow.id} style={globalStyles.descriptionContainerMenu}>
                         <View style={globalStyles.descriptionTextContainerMenu}>
@@ -56,9 +56,9 @@ export default function Welcome({ navigation }: Props) {
                     <Text>No se encontró la descripción</Text>
                 )}
             </View>
-            <View style={globalStyles.bottomContainer}>
+            <View style={globalStyles.bottomScreen}>
                 <TouchableOpacity
-                    style={globalStyles.buttonContainer}
+                    style={globalStyles.customButtonContainer}
                     onPress={() => navigation.navigate("Login")}
                 >
                     <View style={globalStyles.textButtonContainer}>
@@ -66,7 +66,7 @@ export default function Welcome({ navigation }: Props) {
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={globalStyles.buttonContainer}
+                    style={globalStyles.customButtonContainer}
                     onPress={() => navigation.navigate("Registro")}
                 >
                     <View style={globalStyles.textButtonContainer}>
