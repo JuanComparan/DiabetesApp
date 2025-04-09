@@ -1,8 +1,8 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-const nodemailer = require('nodemailer');
-const db = require('../db/db');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
+const db = require("../db/db");
 require("dotenv").config();
 
 // Funcion para registrarse
@@ -14,8 +14,8 @@ exports.register = async (req, res) => {
       db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
         if (error) reject(error);
         resolve(row);
-      })
-    })
+      });
+    });
 
     if (user) {
       return res.status(400).json({ message: "El usuario ya existe. " });
@@ -24,18 +24,28 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await new Promise((resolve, reject) => {
-      const stmt = db.prepare('INSERT INTO users (email, password, iHaveDiabetes, someoneHaveDiabetes) VALUES (?, ?, ?, ?)');
-      stmt.run(email, hashedPassword, iHaveDiabetes, someoneHaveDiabetes, function (err) {
-        if (err) reject(err);
-        resolve();
-      });
+      const stmt = db.prepare(
+        "INSERT INTO users (email, password, iHaveDiabetes, someoneHaveDiabetes) VALUES (?, ?, ?, ?)"
+      );
+      stmt.run(
+        email,
+        hashedPassword,
+        iHaveDiabetes,
+        someoneHaveDiabetes,
+        function (err) {
+          if (err) reject(err);
+          resolve();
+        }
+      );
     });
 
     console.log("Usuario registrado. ", email);
     res.status(201).json({ message: "Usuario registrado con éxito" });
   } catch (error) {
     console.error("Error en register: ", error);
-    res.status(500).json({ message: "Error interno del servidor. ", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error interno del servidor. ", error: error.message });
   }
 };
 
@@ -48,8 +58,8 @@ exports.login = async (req, res) => {
       db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
         if (error) reject(error);
         resolve(row);
-      })
-    })
+      });
+    });
 
     if (!user) {
       return res.status(404).json({ message: "El usuario no existe. " });
@@ -60,33 +70,37 @@ exports.login = async (req, res) => {
         return res.status(400).json({ message: "Credenciales incorrectas. " });
       }
 
-      const token = jwt.sign({ id: user.id, email: user.email }, 'secretKey', { expiresIn: '1h' });
+      const token = jwt.sign({ id: user.id, email: user.email }, "secretKey", {
+        expiresIn: "1h",
+      });
       console.log("Usuario loggeado. ", email);
       res.status(200).json({ message: "Usuario loggeado con éxito. ", token });
     });
   } catch (error) {
     console.error("Error en login: ", error);
-    res.status(500).json({ message: "Error interno del servidor. ", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error interno del servidor. ", error: error.message });
   }
 };
 
 // Funcion para enviar codigo de verificación
 const sendVerificationEmail = (email, verificationCode) => {
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     port: 465,
     secure: true,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
+      pass: process.env.EMAIL_PASS,
+    },
   });
 
   const mailOptions = {
     from: '"DiabetesAppSoporteTecnico" <process.env.EMAIL_USER>',
     to: email,
-    subject: 'Código de verificación para recuperar contraseña',
-    text: `Tu código de verificación es: ${verificationCode}`
+    subject: "Código de verificación para recuperar contraseña",
+    text: `Tu código de verificación es: ${verificationCode}`,
   };
 
   return transporter.sendMail(mailOptions);
@@ -101,34 +115,46 @@ exports.recoverPassword = async (req, res) => {
       db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
         if (error) reject(error);
         resolve(row);
-      })
-    })
+      });
+    });
 
     if (!user) {
       return res.status(404).json({ message: "El usuario no existe. " });
     }
 
-    const verificationCode = crypto.randomBytes(3).toString('hex');
+    const verificationCode = crypto.randomBytes(3).toString("hex");
     const hashedCode = await bcrypt.hash(verificationCode, 10);
 
     sendVerificationEmail(email, verificationCode)
       .then(() => {
-        const stmt = db.prepare('UPDATE users SET verificationCode = ? where email = ?');
+        const stmt = db.prepare(
+          "UPDATE users SET verificationCode = ? where email = ?"
+        );
         stmt.run(hashedCode, email, function (err) {
           if (err) {
-            return res.status(500).json({ message: 'Error al guardar el código de verificación.' });
+            return res
+              .status(500)
+              .json({ message: "Error al guardar el código de verificación." });
           }
           console.log("Código enviado correctamente, ", email);
-          res.status(200).json({ message: "Te hemos enviado un código de verificación a tu correo." });
+          res
+            .status(200)
+            .json({
+              message:
+                "Te hemos enviado un código de verificación a tu correo.",
+            });
         });
       })
       .catch(() => {
-        res.status(500).json({ message: "Error al enviar el correo electrónico." });
+        res
+          .status(500)
+          .json({ message: "Error al enviar el correo electrónico." });
       });
-
   } catch (error) {
     console.error("Error en recoverPassword: ", error);
-    res.status(500).json({ message: "Error interno del servidor. ", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error interno del servidor. ", error: error.message });
   }
 };
 
@@ -141,8 +167,8 @@ exports.verifyCode = async (req, res) => {
       db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
         if (error) reject(error);
         resolve(row);
-      })
-    })
+      });
+    });
 
     if (!user) {
       return res.status(404).json({ message: "El usuario no existe. " });
@@ -150,13 +176,22 @@ exports.verifyCode = async (req, res) => {
 
     bcrypt.compare(verificationCode, user.verificationCode, (err, result) => {
       if (err || !result) {
-        return res.status(400).json({ message: "Código de verificación incorrecto. " });
+        return res
+          .status(400)
+          .json({ message: "Código de verificación incorrecto. " });
       }
-      res.status(200).json({ message: "Código de verificación correcto. Ahora puedes cambiar tu contraseña. " });
-    })
+      res
+        .status(200)
+        .json({
+          message:
+            "Código de verificación correcto. Ahora puedes cambiar tu contraseña. ",
+        });
+    });
   } catch (error) {
     console.error("Error en verifyCode: ", error);
-    res.status(500).json({ message: "Error interno del servidor. ", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error interno del servidor. ", error: error.message });
   }
 };
 
@@ -167,16 +202,24 @@ exports.changePassword = async (req, res) => {
 
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
 
-    const stmt = db.prepare('UPDATE users SET password = ?, verificationCode = NULL WHERE email = ?');
+    const stmt = db.prepare(
+      "UPDATE users SET password = ?, verificationCode = NULL WHERE email = ?"
+    );
     stmt.run(hashedNewPassword, email, function (err) {
       if (err) {
-        return res.status(500).json({ message: "Error al actualizar la contraseña. " });
+        return res
+          .status(500)
+          .json({ message: "Error al actualizar la contraseña. " });
       }
       console.log("Contraseña cambiada exitosamente, ", email);
-      res.status(200).json({ message: "La contraseña fue cambiada con éxito. " });
-    })
+      res
+        .status(200)
+        .json({ message: "La contraseña fue cambiada con éxito. " });
+    });
   } catch (error) {
     console.error("Error en changePassword: ", error);
-    res.status(500).json({ message: "Error interno del servidor. ", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error interno del servidor. ", error: error.message });
   }
 };
