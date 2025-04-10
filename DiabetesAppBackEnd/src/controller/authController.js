@@ -2,11 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-<<<<<<< Updated upstream
-const db = require("../db/db");
-=======
 const supabase = require("../db/db");
->>>>>>> Stashed changes
 require("dotenv").config();
 
 const FetchUsers = async (email) => {
@@ -33,16 +29,7 @@ exports.register = async (req, res) => {
   try {
     const { email, password, iHaveDiabetes, someoneHaveDiabetes } = req.body;
 
-<<<<<<< Updated upstream
-    const user = await new Promise((resolve, reject) => {
-      db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
-        if (error) reject(error);
-        resolve(row);
-      });
-    });
-=======
     const [user] = await FetchUsers(email);
->>>>>>> Stashed changes
 
     if (user) {
       return res.status(400).json({ message: "El usuario ya existe. " });
@@ -137,30 +124,6 @@ exports.recoverPassword = async (req, res) => {
     const verificationCode = crypto.randomBytes(3).toString("hex");
     const hashedCode = await bcrypt.hash(verificationCode, 10);
 
-<<<<<<< Updated upstream
-    sendVerificationEmail(email, verificationCode)
-      .then(() => {
-        const stmt = db.prepare(
-          "UPDATE users SET verificationCode = ? where email = ?"
-        );
-        stmt.run(hashedCode, email, function (err) {
-          if (err) {
-            return res
-              .status(500)
-              .json({ message: "Error al guardar el código de verificación." });
-          }
-          console.log("Código enviado correctamente, ", email);
-          res
-            .status(200)
-            .json({
-              message:
-                "Te hemos enviado un código de verificación a tu correo.",
-            });
-        });
-      })
-      .catch(() => {
-        res
-=======
     try {
       sendVerificationEmail(email, verificationCode);
 
@@ -171,7 +134,6 @@ exports.recoverPassword = async (req, res) => {
 
       if (error) {
         return res
->>>>>>> Stashed changes
           .status(500)
           .json({ message: "Error al guardar el código de verificación." });
       }
@@ -210,12 +172,10 @@ exports.verifyCode = async (req, res) => {
           .status(400)
           .json({ message: "Código de verificación incorrecto. " });
       }
-      res
-        .status(200)
-        .json({
-          message:
-            "Código de verificación correcto. Ahora puedes cambiar tu contraseña. ",
-        });
+      res.status(200).json({
+        message:
+          "Código de verificación correcto. Ahora puedes cambiar tu contraseña. ",
+      });
     });
   } catch (error) {
     console.error("Error en verifyCode: ", error);
