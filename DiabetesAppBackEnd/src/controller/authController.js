@@ -2,20 +2,34 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-const db = require("../db/db");
+const supabase = require("../db/db");
 require("dotenv").config();
+
+const FetchUsers = async (email) => {
+  let usuarios = [];
+  const { data, error } = await supabase
+    .from("users")
+    .select()
+    .eq("email", email);
+
+  if (error) {
+    console.log("Error", error);
+    return error;
+  }
+
+  if (data) {
+    usuarios = data;
+  }
+
+  return usuarios;
+};
 
 // Funcion para registrarse
 exports.register = async (req, res) => {
   try {
     const { email, password, iHaveDiabetes, someoneHaveDiabetes } = req.body;
 
-    const user = await new Promise((resolve, reject) => {
-      db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
-        if (error) reject(error);
-        resolve(row);
-      });
-    });
+    const [user] = await FetchUsers(email);
 
     if (user) {
       return res.status(400).json({ message: "El usuario ya existe. " });
@@ -23,21 +37,16 @@ exports.register = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await new Promise((resolve, reject) => {
-      const stmt = db.prepare(
-        "INSERT INTO users (email, password, iHaveDiabetes, someoneHaveDiabetes) VALUES (?, ?, ?, ?)"
-      );
-      stmt.run(
-        email,
-        hashedPassword,
-        iHaveDiabetes,
-        someoneHaveDiabetes,
-        function (err) {
-          if (err) reject(err);
-          resolve();
-        }
-      );
+    const { error } = await supabase.from("users").insert({
+      email: email,
+      password: hashedPassword,
+      iHaveDiabetes: iHaveDiabetes,
+      someoneHaveDiabetes: someoneHaveDiabetes,
     });
+
+    if (error) {
+      console.log(error);
+    }
 
     console.log("Usuario registrado. ", email);
     res.status(201).json({ message: "Usuario registrado con éxito" });
@@ -54,12 +63,7 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await new Promise((resolve, reject) => {
-      db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
-        if (error) reject(error);
-        resolve(row);
-      });
-    });
+    const [user] = await FetchUsers(email);
 
     if (!user) {
       return res.status(404).json({ message: "El usuario no existe. " });
@@ -111,12 +115,7 @@ exports.recoverPassword = async (req, res) => {
   try {
     const { email } = req.body;
 
-    const user = await new Promise((resolve, reject) => {
-      db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
-        if (error) reject(error);
-        resolve(row);
-      });
-    });
+    const [user] = await FetchUsers(email);
 
     if (!user) {
       return res.status(404).json({ message: "El usuario no existe. " });
@@ -125,31 +124,29 @@ exports.recoverPassword = async (req, res) => {
     const verificationCode = crypto.randomBytes(3).toString("hex");
     const hashedCode = await bcrypt.hash(verificationCode, 10);
 
-    sendVerificationEmail(email, verificationCode)
-      .then(() => {
-        const stmt = db.prepare(
-          "UPDATE users SET verificationCode = ? where email = ?"
-        );
-        stmt.run(hashedCode, email, function (err) {
-          if (err) {
-            return res
-              .status(500)
-              .json({ message: "Error al guardar el código de verificación." });
-          }
-          console.log("Código enviado correctamente, ", email);
-          res
-            .status(200)
-            .json({
-              message:
-                "Te hemos enviado un código de verificación a tu correo.",
-            });
-        });
-      })
-      .catch(() => {
-        res
+    try {
+      sendVerificationEmail(email, verificationCode);
+
+      const { error } = await supabase
+        .from("users")
+        .update({ verificationCode: hashedCode })
+        .eq("email", email);
+
+      if (error) {
+        return res
           .status(500)
-          .json({ message: "Error al enviar el correo electrónico." });
+          .json({ message: "Error al guardar el código de verificación." });
+      }
+
+      console.log("Código enviado correctamente, ", email);
+      return res.status(200).json({
+        message: "Te hemos enviado un código de verificación a tu correo.",
       });
+    } catch {
+      return res
+        .status(500)
+        .json({ message: "Error al enviar el correo electrónico." });
+    }
   } catch (error) {
     console.error("Error en recoverPassword: ", error);
     res
@@ -163,12 +160,7 @@ exports.verifyCode = async (req, res) => {
   try {
     const { email, verificationCode } = req.body;
 
-    const user = await new Promise((resolve, reject) => {
-      db.get("SELECT * FROM users WHERE email = ?", [email], (error, row) => {
-        if (error) reject(error);
-        resolve(row);
-      });
-    });
+    const [user] = await FetchUsers(email);
 
     if (!user) {
       return res.status(404).json({ message: "El usuario no existe. " });
@@ -180,12 +172,10 @@ exports.verifyCode = async (req, res) => {
           .status(400)
           .json({ message: "Código de verificación incorrecto. " });
       }
-      res
-        .status(200)
-        .json({
-          message:
-            "Código de verificación correcto. Ahora puedes cambiar tu contraseña. ",
-        });
+      res.status(200).json({
+        message:
+          "Código de verificación correcto. Ahora puedes cambiar tu contraseña. ",
+      });
     });
   } catch (error) {
     console.error("Error en verifyCode: ", error);
@@ -202,20 +192,19 @@ exports.changePassword = async (req, res) => {
 
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
 
-    const stmt = db.prepare(
-      "UPDATE users SET password = ?, verificationCode = NULL WHERE email = ?"
-    );
-    stmt.run(hashedNewPassword, email, function (err) {
-      if (err) {
-        return res
-          .status(500)
-          .json({ message: "Error al actualizar la contraseña. " });
-      }
-      console.log("Contraseña cambiada exitosamente, ", email);
-      res
-        .status(200)
-        .json({ message: "La contraseña fue cambiada con éxito. " });
-    });
+    const { error } = await supabase
+      .from("users")
+      .update({ password: hashedNewPassword })
+      .eq("email", email);
+
+    if (error) {
+      return res
+        .status(500)
+        .json({ message: "Error al actualizar la contraseña. " });
+    }
+
+    console.log("Contraseña cambiada exitosamente, ", email);
+    res.status(200).json({ message: "La contraseña fue cambiada con éxito. " });
   } catch (error) {
     console.error("Error en changePassword: ", error);
     res

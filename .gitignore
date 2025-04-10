@@ -32,7 +32,7 @@ yarn-error.*
 
 # local env files
 .env*.local
-DiabetesAppBackEnd/.env
+DiabetesAppBackEnd/src/.env
 
 # typescript
 *.tsbuildinf
