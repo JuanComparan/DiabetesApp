@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // const sqlite3 = require('sqlite3').verbose();
 
 // const db = new sqlite3.Database('./users.db', (err) => {
@@ -14,10 +15,20 @@
 // module.exports = db;
 
 const postgres = require("postgres");
+=======
+require("dotenv").config();
+const { createClient } = require("@supabase/supabase-js");
+>>>>>>> Stashed changes
 
 const connectionString = process.env.DATABASE_URL;
 const sql = postgres(connectionString);
 
+<<<<<<< Updated upstream
 const db = sql;
 
 module.exports = db;
+=======
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+module.exports = supabase;
+>>>>>>> Stashed changes

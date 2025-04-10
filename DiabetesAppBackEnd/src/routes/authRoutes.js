@@ -1,6 +1,19 @@
+<<<<<<< Updated upstream
 const express = require('express');
 const authController = require('../controller/authController');
 const { validateRegister, validateNewPassword, validateLogin, validateRecoverPassword, validateVerifyCode } = require('../middlewares/authValidator');
+=======
+const express = require("express");
+
+const authController = require("../controller/authController");
+const {
+  validateRegister,
+  validateNewPassword,
+  validateLogin,
+  validateRecoverPassword,
+  validateVerifyCode,
+} = require("../middlewares/authValidator");
+>>>>>>> Stashed changes
 
 const router = express.Router();
 
